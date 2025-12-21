@@ -94,6 +94,23 @@ public class barang_Masuk extends javax.swing.JPanel {
         reset();
     }
     
+    private void tambahDetailBarang(){
+        DefaultTableModel model = (DefaultTableModel)tblDetailBawah.getModel();
+        
+        if (model.getColumnCount()==0) {
+            model.addColumn("no_masuk");
+            model.addColumn("kode_barang");
+            model.addColumn("jml_masuk");
+            model.addColumn("subtotal_masuk");
+        }
+        model.addRow(new Object[]{
+           tNoMasuk.getText(),
+           tKodeBarang.getText(),
+           tJumlah.getText(),
+           tSubtotal.getText()
+        });
+    }
+    
     void load_table_dataBarangMasuk(){
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("No Masuk");
@@ -990,6 +1007,7 @@ public class barang_Masuk extends javax.swing.JPanel {
 
     private void tJumlahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tJumlahActionPerformed
         // TODO add your handling code here:
+        tambahDetailBarang();
     }//GEN-LAST:event_tJumlahActionPerformed
 
     private void tSubtotalKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tSubtotalKeyReleased
