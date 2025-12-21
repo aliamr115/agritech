@@ -8,33 +8,26 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
  * @author user
  */
 public class Model_Barang extends koneksi{ //Model : digunakan untuk mendeklarasikan atribut" apa saja yang ada diDB
-    private String kode_barang,  nama_barang, satuan, jenis_barang;
-    private int harga, stok;
-    
-    private final Connection koneksi; 
+    private String  nama_barang, satuan;
+    private int harga, stok, kode_barang, kode_jenis;
+    private final Connection conn;
     private PreparedStatement ps;
+    private Statement st;
     private ResultSet rs;
     private String query;
     
 
-    public Model_Barang() { //konstuktor
-        koneksi = super.configDB();
+    public Model_Barang() {
+        conn = super.configDB();
     }
-
-    public String getKode_barang() {
-        return kode_barang;
-    }
-
-    public void setKode_barang(String kode_barang) {
-        this.kode_barang = kode_barang;
-    }
-
     public String getNama_barang() {
         return nama_barang;
     }
@@ -51,14 +44,6 @@ public class Model_Barang extends koneksi{ //Model : digunakan untuk mendeklaras
         this.satuan = satuan;
     }
 
-    public int getStok() {
-        return stok;
-    }
-
-    public void setStok(int stok) {
-        this.stok = stok;
-    }
-
     public int getHarga() {
         return harga;
     }
@@ -67,33 +52,48 @@ public class Model_Barang extends koneksi{ //Model : digunakan untuk mendeklaras
         this.harga = harga;
     }
 
-    public String getJenis_barang() {
-        return jenis_barang;
+    public int getStok() {
+        return stok;
     }
 
-    public void setJenis_barang(String jenis_barang) {
-        this.jenis_barang = jenis_barang;
+    public void setStok(int stok) {
+        this.stok = stok;
     }
 
+    public int getKode_barang() {
+        return kode_barang;
+    }
+
+    public void setKode_barang(int kode_barang) {
+        this.kode_barang = kode_barang;
+    }
+
+    public int getKode_jenis() {
+        return kode_jenis;
+    }
+
+    public void setKode_jenis(int kode_jenis) {
+        this.kode_jenis = kode_jenis;
+    }
    
     
     public void tambahBarang() {
         try {
-            query = "INSERT INTO barang (kode_barang, kode_jenis, nama_barang, satuan, harga, stok) "
-                    + "VALUES (?, ?, ?, ?, ?, ?)";
-            ps = koneksi.prepareStatement(query);
-            ps.setString(1, kode_barang);
-            ps.setString(2, jenis_barang);
-            ps.setString(3, nama_barang);
-            ps.setString(4, satuan);
-            ps.setInt(5, harga);
-            ps.setInt(6, stok);
+            query = "INSERT INTO barang (kode_jenis, nama_barang, satuan, harga, stok) "
+                    + "VALUES (?, ?, ?, ?, ?)";
+            ps = conn.prepareStatement(query);
+//            ps.setInt(1, kode_barang);
+            ps.setInt(1, kode_jenis);
+            ps.setString(2, nama_barang);
+            ps.setString(3, satuan);
+            ps.setInt(4, harga);
+            ps.setInt(5, stok);
             
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Data Berhasil Ditambahkan!");
+            ps.close();
             
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error tambah: " + e.getMessage());
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Error tambah: " + sQLException.getMessage());
         }
     }
     
@@ -102,19 +102,17 @@ public class Model_Barang extends koneksi{ //Model : digunakan untuk mendeklaras
             query = "UPDATE barang SET kode_jenis=?, nama_barang=?, satuan=?, harga=?, stok=? "
                     + "WHERE kode_barang=?";
             
-            ps = koneksi.prepareStatement(query);
-            ps.setString(1, jenis_barang);
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, kode_jenis);
             ps.setString(2, nama_barang);
             ps.setString(3, satuan);
             ps.setInt(4, harga);
             ps.setInt(5, stok);
-            ps.setString(6, kode_barang);
+            ps.setInt(6, kode_barang);
             
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Data Berhasil Diubah!");
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error update: " + e.getMessage());
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Error update: " + sQLException.getMessage());
         }
     }
     
@@ -122,15 +120,70 @@ public class Model_Barang extends koneksi{ //Model : digunakan untuk mendeklaras
         try {
          query = "DELETE FROM barang WHERE kode_barang = ?";
            
-            ps = koneksi.prepareStatement(query);
-            ps.setString(1, kode_barang);
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, kode_barang);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "DaTA BERASIL DIHAPUS!");
             
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "DaTA GAGAL DIHAPUS: " + e.getMessage());
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "DaTA GAGAL DIHAPUS: " + sQLException.getMessage());
            
     }
     }
+    
+    public ResultSet TampilBarang() {
+        query =  "SELECT b.kode_barang, b.kode_jenis, j.nama_jenis, " +
+         "b.nama_barang, b.satuan, b.harga, b.stok " +
+         "FROM barang b " +
+         "JOIN jenisbarang j ON b.kode_jenis = j.kode_jenis " +
+         "ORDER BY b.kode_barang ASC";
+        
+        try {
+            st = conn.createStatement();
+            rs = st.executeQuery(query);
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Data gagal di tampilkan : " + sQLException.getMessage());
+        }
+        return rs;
+    }
+    
+    public  ResultSet DetailBarang(int id) {
+        query = "SELECT * FROM barang WHERE kode_barang = ?";
+        try {
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Eror : " + sQLException.getMessage());
+        }
+        return rs;
+    }
+    
+    public ResultSet cariJenis(String key) {
+        query = "SELECT * FROM barang WHERE nama_barang LIKE ? "
+                + "OR satuan LIKE ? "
+                + "OR CAST(stok AS CHAR) LIKE ? "
+                + "OR CAST(harga AS CHAR) LIKE ? "
+                + "OR kode_barang = ?";
+        
+        try {
+            ps = conn.prepareStatement(query);
+            key = "%" + key + "%";
+            
+            ps.setString(1, key); // nama barang
+            ps.setString(2, key); // satuan
+            ps.setString(3, key); // stok
+            ps.setString(4, key); // harga
+            ps.setString(5, key); // kode barang
+            
+            rs = ps.executeQuery();
+
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "gagal Cari data : " + sQLException.getMessage());
+        }
+        return rs;
+    }
+    
+    
 }
 

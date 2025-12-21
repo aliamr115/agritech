@@ -115,4 +115,41 @@ public class Model_JenisBarang extends koneksi{
     }
     return rs;
 }
+    public ResultSet ComboJenis() {
+        try {
+            query = "SELECT nama_jenis FROM jenisbarang";
+            
+            st = koneksi.createStatement();
+            rs = st.executeQuery(query);
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Eror ComboJenis : " + sQLException);
+        }
+        return rs;
+    }
+    
+    public ResultSet konversi() {
+        try {
+            query = "SELECT kode_jenis FROM jenisbarang WHERE nama_jenis = ?";
+
+            ps = koneksi.prepareStatement(query);
+            ps.setString(1, nama_jenis);
+            rs = ps.executeQuery();
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Eror Konversi : " + sQLException.getMessage());
+        }
+        return rs;
+    }
+    
+    public ResultSet NamaJenis(String nama) {
+    query = "SELECT kode_jenis, nama_jenis FROM jenisbarang WHERE nama_jenis = ?";
+    try {
+        ps = koneksi.prepareStatement(query);
+        ps.setString(1, nama);
+        rs = ps.executeQuery();
+        
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error NamaJenis aaaaaa : " + e.getMessage());
+    }
+    return rs;
+    }
 }
