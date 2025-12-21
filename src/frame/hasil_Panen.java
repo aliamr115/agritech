@@ -175,12 +175,12 @@ private void loadTable() {
 
     private void BsimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BsimpanActionPerformed
         // TODO add your handling code here:private void BsimpanActionPerformed(java.awt.event.ActionEvent evt) {
-    int idUser = UserSession.getIdUser(); // OTOMATIS
+    //int idUser = UserSession.getIdUser(); // OTOMATIS
     String namaBarang = cmbBarang.getSelectedItem().toString();
     double totalPanen = Double.parseDouble(txtTotalPanen.getText());
 
-    Model_HasilPanen panen = new Model_HasilPanen();
-    panen.simpan(idUser, namaBarang, totalPanen);
+    //Model_HasilPanen panen = new Model_HasilPanen();
+    //panen.simpan(idUser, namaBarang, totalPanen);
 
     loadTable();
     JOptionPane.showMessageDialog(this, "Data panen berhasil disimpan");
