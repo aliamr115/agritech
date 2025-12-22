@@ -231,6 +231,7 @@ public class dashboard extends javax.swing.JFrame {
             }
         } );
         
+        
         // Sub menu pada menu Kelola
         MenuItem menuKelola1 = new MenuItem(null, true, iconBarangMasukdanKeluar, "Barang Masuk", new ActionListener() {
             @Override

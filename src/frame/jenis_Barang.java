@@ -179,9 +179,9 @@ public class jenis_Barang extends javax.swing.JPanel {
         tKodeJenis = new javax.swing.JTextField();
         tNamaJenis = new javax.swing.JTextField();
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setLayout(new java.awt.CardLayout());
 
-        mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        mainPanel.setLayout(new java.awt.CardLayout());
 
         dataJenis.setBackground(new java.awt.Color(138, 195, 153));
         dataJenis.setLayout(null);
@@ -278,7 +278,7 @@ public class jenis_Barang extends javax.swing.JPanel {
         dataJenis.add(jLabel3);
         jLabel3.setBounds(0, 0, 0, 0);
 
-        mainPanel.add(dataJenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 580));
+        mainPanel.add(dataJenis, "card2");
 
         tambahJenis.setBackground(new java.awt.Color(138, 195, 153));
 
@@ -374,9 +374,9 @@ public class jenis_Barang extends javax.swing.JPanel {
                 .addComponent(tNamaJenis, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        mainPanel.add(tambahJenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 580));
+        mainPanel.add(tambahJenis, "card3");
 
-        add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 580));
+        add(mainPanel, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
