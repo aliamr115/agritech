@@ -5,9 +5,9 @@
 package frame;
 
 import Class.koneksi;
-import Class.Model_User;
+//import Class.Model_User;
 import Class.Model_BarangKeluar;
-import Class.Model_Barang;
+//import Class.Model_Barang;
 import Class.Model_DetBarangKeluar;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -952,7 +952,7 @@ public class barang_Keluar extends javax.swing.JPanel {
     }//GEN-LAST:event_tNoKeluarActionPerformed
 
     private void tIdUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tIdUserActionPerformed
-        Model_User usr = new Model_User();
+       // Model_User usr = new Model_User();
         IDno_Keluar();
     }//GEN-LAST:event_tIdUserActionPerformed
 
