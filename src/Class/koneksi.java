@@ -17,7 +17,7 @@ public class koneksi {
     
     public static Connection configDB(){
         try {
-            String url = "jdbc:mysql://localhost:3306/agritech1";
+            String url = "jdbc:mysql://localhost:3306/agritech";
             String user = "root";
             String pass = "";
             

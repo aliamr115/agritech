@@ -157,7 +157,6 @@ public class formBarang extends javax.swing.JPanel {
         
         
         
-        
 //        String cari = tCari.getText().trim();
         
 //        DefaultTableModel model = (DefaultTableModel) tblDataBarang.getModel();
@@ -220,7 +219,6 @@ public class formBarang extends javax.swing.JPanel {
 }
     
     
-
 
     /**
      * This method is called from within the constructor to initialize the form.
