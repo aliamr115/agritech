@@ -1,7 +1,6 @@
 package frame;
 
 import Class.Model_User;
-import Class.Model_Login;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener; 
