@@ -193,6 +193,7 @@ public class jenis_Barang extends javax.swing.JPanel {
         dataJenis.add(jLabel6);
         jLabel6.setBounds(997, 108, 0, 0);
 
+        tblDataJenis.setBackground(new java.awt.Color(204, 255, 204));
         tblDataJenis.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         tblDataJenis.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

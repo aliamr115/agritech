@@ -266,6 +266,7 @@ public class formBarang extends javax.swing.JPanel {
 
         dataBarang.setBackground(new java.awt.Color(138, 195, 153));
 
+        tblDataBarang.setBackground(new java.awt.Color(204, 255, 204));
         tblDataBarang.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         tblDataBarang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -302,7 +303,7 @@ public class formBarang extends javax.swing.JPanel {
         jSeparator1.setBackground(new java.awt.Color(138, 195, 153));
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-search-20.png"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-search-22.png"))); // NOI18N
 
         btnUbah.setBackground(new java.awt.Color(0, 153, 0));
         btnUbah.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
@@ -357,11 +358,11 @@ public class formBarang extends javax.swing.JPanel {
                                         .addGap(27, 27, 27)
                                         .addComponent(btnUbah)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(tCari, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(tCari, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(10, 10, 10)))))
-                        .addContainerGap(90, Short.MAX_VALUE))
+                        .addContainerGap(80, Short.MAX_VALUE))
                     .addGroup(dataBarangLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE))))
@@ -380,7 +381,7 @@ public class formBarang extends javax.swing.JPanel {
                         .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnUbah, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(tCari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(tCari, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(127, 127, 127))
@@ -552,7 +553,7 @@ public class formBarang extends javax.swing.JPanel {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tStok, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(203, Short.MAX_VALUE))
+                .addContainerGap(204, Short.MAX_VALUE))
         );
 
         mainPanel.add(tambahBarang, "card3");
@@ -667,7 +668,31 @@ public class formBarang extends javax.swing.JPanel {
     }//GEN-LAST:event_tKodeJenisBarangActionPerformed
 
     private void tCariKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tCariKeyReleased
-        cariData(TOOL_TIP_TEXT_KEY);
+        String cari = tCari.getText();
+
+        DefaultTableModel model = (DefaultTableModel) tblDataBarang.getModel();
+        model.setRowCount(0);
+
+        try {
+            String sql = "SELECT * FROM barang WHERE kode_barang LIKE ? OR nama_barang LIKE ?";
+            PreparedStatement ps = koneksi.configDB().prepareStatement(sql);
+
+            ps.setString(1, "%" + cari + "%");
+            ps.setString(2, "%" + cari + "%");
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                model.addRow(new Object[]{
+                    rs.getString("kode_barang"),
+                    rs.getString("nama_barang")
+                });
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+}
+
     }//GEN-LAST:event_tCariKeyReleased
 
     private void cNamaJnsBrngKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cNamaJnsBrngKeyReleased

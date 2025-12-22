@@ -76,6 +76,7 @@ private void loadTable() {
         setBackground(new java.awt.Color(138, 195, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jTable.setBackground(new java.awt.Color(204, 255, 204));
         jTable.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -104,7 +105,7 @@ private void loadTable() {
                 txtTotalPanenActionPerformed(evt);
             }
         });
-        add(txtTotalPanen, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 111, 192, 32));
+        add(txtTotalPanen, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 111, 210, 30));
 
         Bsimpan.setBackground(new java.awt.Color(0, 153, 0));
         Bsimpan.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
@@ -115,7 +116,7 @@ private void loadTable() {
                 BsimpanActionPerformed(evt);
             }
         });
-        add(Bsimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(292, 113, -1, 32));
+        add(Bsimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, -1, 32));
 
         bHapus.setBackground(new java.awt.Color(0, 153, 0));
         bHapus.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
@@ -126,21 +127,21 @@ private void loadTable() {
                 bHapusActionPerformed(evt);
             }
         });
-        add(bHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(393, 113, -1, 32));
+        add(bHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, -1, 32));
 
         bKembali.setBackground(new java.awt.Color(0, 153, 0));
         bKembali.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
         bKembali.setForeground(new java.awt.Color(255, 255, 255));
         bKembali.setText("Kembali");
-        add(bKembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(501, 113, -1, 32));
+        add(bKembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, -1, 32));
 
         cmbBarang.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         cmbBarang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Padi", "Jagung", "Bawang Merah", " " }));
-        add(cmbBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 73, 192, -1));
+        add(cmbBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 73, 210, -1));
 
         jLabel2.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         jLabel2.setText("Nama barang");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 53, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 54, -1, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtTotalPanenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalPanenActionPerformed

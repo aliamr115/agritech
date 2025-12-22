@@ -689,22 +689,22 @@ public class barang_Masuk extends javax.swing.JPanel {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(tambahBarangMasukLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(tambahBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(tambahBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel13)
                                     .addComponent(jLabel14)
                                     .addComponent(jLabel15)
-                                    .addComponent(cNamaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tKodeBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cNamaBarang, 0, 400, Short.MAX_VALUE)
+                                    .addComponent(tKodeBarang, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tambahBarangMasukLayout.createSequentialGroup()
                                         .addComponent(jLabel16)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(tSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(tJumlah)
+                                    .addComponent(tHarga))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(tambahBarangMasukLayout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 902, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addComponent(jScrollPane2)
+                        .addGap(40, 40, 40))))
         );
         tambahBarangMasukLayout.setVerticalGroup(
             tambahBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -774,22 +774,27 @@ public class barang_Masuk extends javax.swing.JPanel {
                         .addComponent(jLabel3))
                     .addGroup(dataBarangMasukLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(tambahBarangMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tambahBarangMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(21, 158, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dataBarangMasukLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 986, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(dataBarangMasukLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(dataBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dataBarangMasukLayout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1019, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(dataBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(dataBarangMasukLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 914, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, dataBarangMasukLayout.createSequentialGroup()
-                            .addGap(38, 38, 38)
-                            .addGroup(dataBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(dataBarangMasukLayout.createSequentialGroup()
-                                    .addComponent(btnTambah)
-                                    .addGap(613, 613, 613)
-                                    .addComponent(tCari, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(dataBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 914, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel5)
+                            .addGap(914, 914, 914))
+                        .addGroup(dataBarangMasukLayout.createSequentialGroup()
+                            .addComponent(btnTambah)
+                            .addGap(670, 670, 670)
+                            .addComponent(tCari, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap()))))
         );
         dataBarangMasukLayout.setVerticalGroup(
             dataBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -824,8 +829,9 @@ public class barang_Masuk extends javax.swing.JPanel {
 
         jSeparator7.setForeground(new java.awt.Color(0, 0, 0));
 
-        btnKembali.setBackground(new java.awt.Color(153, 255, 0));
+        btnKembali.setBackground(new java.awt.Color(0, 153, 51));
         btnKembali.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
+        btnKembali.setForeground(new java.awt.Color(255, 255, 255));
         btnKembali.setText("Kembali");
         btnKembali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -878,8 +884,9 @@ public class barang_Masuk extends javax.swing.JPanel {
         });
         jScrollPane5.setViewportView(tblDetailBawah);
 
-        btnUbah.setBackground(new java.awt.Color(153, 255, 0));
+        btnUbah.setBackground(new java.awt.Color(0, 153, 51));
         btnUbah.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
+        btnUbah.setForeground(new java.awt.Color(255, 255, 255));
         btnUbah.setText("Ubah");
         btnUbah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -907,11 +914,9 @@ public class barang_Masuk extends javax.swing.JPanel {
                     .addGroup(detailBarangMasukLayout.createSequentialGroup()
                         .addGroup(detailBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jSeparator7, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(detailBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jSeparator10)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)))
+                            .addGroup(detailBarangMasukLayout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addGap(741, 741, 741)))
                         .addGap(183, 183, 183))
                     .addGroup(detailBarangMasukLayout.createSequentialGroup()
                         .addComponent(btnKembali)
@@ -919,7 +924,7 @@ public class barang_Masuk extends javax.swing.JPanel {
                             .addGroup(detailBarangMasukLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel7)
-                                .addContainerGap(883, Short.MAX_VALUE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(detailBarangMasukLayout.createSequentialGroup()
                                 .addGap(27, 27, 27)
                                 .addComponent(btnUbah)
@@ -927,8 +932,13 @@ public class barang_Masuk extends javax.swing.JPanel {
                                 .addComponent(btnHapus)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(detailBarangMasukLayout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addContainerGap(932, Short.MAX_VALUE))))
+                        .addGroup(detailBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 973, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(detailBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 973, Short.MAX_VALUE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addContainerGap())))
         );
         detailBarangMasukLayout.setVerticalGroup(
             detailBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -952,7 +962,7 @@ public class barang_Masuk extends javax.swing.JPanel {
                 .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 624, Short.MAX_VALUE))
+                .addGap(0, 75, Short.MAX_VALUE))
         );
 
         mainPanel.add(detailBarangMasuk, "card3");

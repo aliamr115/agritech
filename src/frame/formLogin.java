@@ -10,7 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.sql.PreparedStatement;
-//import frame.dashboard;
+import frame.dashboard;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -137,7 +137,7 @@ public class formLogin extends javax.swing.JFrame {
             
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                //new dashboard().setVisible(true);
+                new dashboard().setVisible(true);
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Username atau Password salah!");
