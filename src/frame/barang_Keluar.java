@@ -5,9 +5,9 @@
 package frame;
 
 import Class.koneksi;
-//import Class.Model_User;
+import Class.Model_User;
 import Class.Model_BarangKeluar;
-//import Class.Model_Barang;
+import Class.Model_Barang;
 import Class.Model_DetBarangKeluar;
 import java.sql.Connection;
 import java.sql.ResultSet;

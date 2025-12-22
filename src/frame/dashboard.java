@@ -10,7 +10,7 @@ import javax.swing.Timer;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import frame.About;
-//import frame.barang_Keluar;
+import frame.barang_Keluar;
 import frame.barang_Masuk;
 import frame.formBarang;
 import frame.jenis_Barang;
@@ -246,7 +246,7 @@ public class dashboard extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pn_utama.removeAll();
-                //pn_utama.add(new barang_Keluar());
+                pn_utama.add(new barang_Keluar());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }
