@@ -12,13 +12,13 @@ import javax.swing.Timer;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import frame.About;
-//import panel.barang_Keluar;
+import frame.barang_Keluar;
 import frame.barang_Masuk;
 import frame.formBarang;
 import frame.hasil_Panen;
 import frame.jenis_Barang;
 import frame.laporan;
-//import frame.logout;
+import frame.logout;
 
 /**
  *
@@ -78,12 +78,11 @@ private javax.swing.JLabel jLabel1;
             }
         });
 
-        pn_navbar.setBackground(new java.awt.Color(0, 153, 0));
+        pn_navbar.setBackground(new java.awt.Color(204, 255, 204));
         pn_navbar.setMinimumSize(new java.awt.Dimension(100, 80));
         pn_navbar.setPreferredSize(new java.awt.Dimension(1300, 70));
 
         lAgritech.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lAgritech.setForeground(new java.awt.Color(255, 255, 255));
         lAgritech.setText("A G R I T E C H ");
 
         javax.swing.GroupLayout pn_navbarLayout = new javax.swing.GroupLayout(pn_navbar);
@@ -213,7 +212,7 @@ private javax.swing.JLabel jLabel1;
             @Override
             public void actionPerformed(ActionEvent e) {
                 pn_utama.removeAll();
-                //.add(new formBarang());
+                pn_utama.add(new formBarang());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }
@@ -244,34 +243,13 @@ private javax.swing.JLabel jLabel1;
             @Override
             public void actionPerformed(ActionEvent e) {
                 pn_utama.removeAll();
-                //pn_utama.add(new barang_Keluar());
+                pn_utama.add(new barang_Keluar());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }
         } );
         
-        // Sub menu pada menu Laporan
-        
-        MenuItem menuLaporan1 = new MenuItem(null, true, iconBarang, "Barang Keluar", new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                pn_utama.removeAll();
-                pn_utama.add(new laporan());
-                pn_utama.repaint();
-                pn_utama.revalidate();
-            }
-        } );
-      
-        MenuItem menuLaporan2 = new MenuItem(null, true, iconBarang, "Barang Keluar", new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                pn_utama.removeAll();
-                pn_utama.add(new laporan());
-                pn_utama.repaint();
-                pn_utama.revalidate();
-            }
-        } );
-        MenuItem menuLaporan3 = new MenuItem(null, true, iconBarang, "Hasil Panen", new ActionListener() {
+          MenuItem menuKelola3 = new MenuItem(null, true, iconBarang, "Hasil Panen", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pn_utama.removeAll();
@@ -280,8 +258,7 @@ private javax.swing.JLabel jLabel1;
                 pn_utama.revalidate();
             }
         } );
-        
-        
+          
         // Menu utama memanggil sub menu
         MenuItem menuDasbor = new MenuItem(iconDashboard, false, null, "Dashboard", new ActionListener() {
             @Override
@@ -293,13 +270,24 @@ private javax.swing.JLabel jLabel1;
             }
         });
         
+         // Menu utama memanggil sub menu
+        MenuItem menuLaporan = new MenuItem(iconAbout, false, null, "Laporan", new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+                pn_utama.removeAll();
+                pn_utama.add(new laporan());
+                pn_utama.repaint();
+                pn_utama.revalidate();
+            }
+        }); 
         // Menu utama memanggil sub menu
         MenuItem menuAbout = new MenuItem(iconAbout, false, null, "About", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 
                 pn_utama.removeAll();
-               // pn_utama.add(new About());
+                pn_utama.add(new About());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }
@@ -325,8 +313,7 @@ private javax.swing.JLabel jLabel1;
         // Menu utama memamnggil sub menu
         
         MenuItem menuData = new MenuItem(iconData, false, null, "Data", null, menuBarang1,menuBarang2);
-        MenuItem menuKelola = new MenuItem(iconKelola, false, null, "Kelola", null, menuKelola1,menuKelola2);
-        MenuItem menuLaporan = new MenuItem(iconLaporan, false, null, "Laporan", null, menuLaporan1, menuLaporan2, menuLaporan3);
+        MenuItem menuKelola = new MenuItem(iconKelola, false, null, "Kelola", null, menuKelola1,menuKelola2,menuKelola3);
   
         
         addMenu(menuDasbor, menuData, menuKelola, menuLaporan, menuAbout, menuLogout);     

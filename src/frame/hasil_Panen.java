@@ -73,6 +73,9 @@ private void loadTable() {
         cmbBarang = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(138, 195, 153));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jTable.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -87,93 +90,57 @@ private void loadTable() {
         ));
         jScrollPane1.setViewportView(jTable);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 174, 962, 383));
+
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Book", 0, 18)); // NOI18N
         jLabel1.setText("Hasil Panen");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 16, -1, -1));
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 43, 962, -1));
 
         txtTotalPanen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTotalPanenActionPerformed(evt);
             }
         });
+        add(txtTotalPanen, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 111, 192, 32));
 
+        Bsimpan.setBackground(new java.awt.Color(0, 153, 0));
         Bsimpan.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
+        Bsimpan.setForeground(new java.awt.Color(255, 255, 255));
         Bsimpan.setText("Simpan");
         Bsimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BsimpanActionPerformed(evt);
             }
         });
+        add(Bsimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(292, 113, -1, 32));
 
+        bHapus.setBackground(new java.awt.Color(0, 153, 0));
         bHapus.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
+        bHapus.setForeground(new java.awt.Color(255, 255, 255));
         bHapus.setText("Hapus");
         bHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bHapusActionPerformed(evt);
             }
         });
+        add(bHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(393, 113, -1, 32));
 
+        bKembali.setBackground(new java.awt.Color(0, 153, 0));
         bKembali.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
+        bKembali.setForeground(new java.awt.Color(255, 255, 255));
         bKembali.setText("Kembali");
+        add(bKembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(501, 113, -1, 32));
 
         cmbBarang.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         cmbBarang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Padi", "Jagung", "Bawang Merah", " " }));
+        add(cmbBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 73, 192, -1));
 
         jLabel2.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         jLabel2.setText("Nama barang");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 962, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(cmbBarang, javax.swing.GroupLayout.Alignment.LEADING, 0, 192, Short.MAX_VALUE)
-                            .addComponent(txtTotalPanen, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(63, 63, 63)
-                        .addComponent(Bsimpan)
-                        .addGap(32, 32, 32)
-                        .addComponent(bHapus)
-                        .addGap(18, 18, 18)
-                        .addComponent(bKembali)))
-                .addContainerGap(69, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(33, 33, 33)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 983, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(52, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cmbBarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTotalPanen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Bsimpan)
-                    .addComponent(bHapus)
-                    .addComponent(bKembali))
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(43, 43, 43)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(544, Short.MAX_VALUE)))
-        );
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 53, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtTotalPanenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalPanenActionPerformed

@@ -166,7 +166,8 @@ public class jenis_Barang extends javax.swing.JPanel {
         tCari = new javax.swing.JTextField();
         btnUbah = new javax.swing.JButton();
         btnHapus = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel3 = new javax.swing.JLabel();
         tambahJenis = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jSeparator17 = new javax.swing.JSeparator();
@@ -177,18 +178,18 @@ public class jenis_Barang extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         tKodeJenis = new javax.swing.JTextField();
         tNamaJenis = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
 
-        setLayout(null);
+        setLayout(new java.awt.CardLayout());
 
-        mainPanel.setLayout(null);
+        mainPanel.setLayout(new java.awt.CardLayout());
 
+        dataJenis.setBackground(new java.awt.Color(138, 195, 153));
         dataJenis.setLayout(null);
 
-        jLabel5.setFont(new java.awt.Font("Franklin Gothic Book", 0, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Franklin Gothic Book", 0, 18)); // NOI18N
         jLabel5.setText("Data Jenis Barang");
         dataJenis.add(jLabel5);
-        jLabel5.setBounds(60, 30, 220, 28);
+        jLabel5.setBounds(40, 10, 220, 21);
         dataJenis.add(jLabel6);
         jLabel6.setBounds(997, 108, 0, 0);
 
@@ -212,7 +213,7 @@ public class jenis_Barang extends javax.swing.JPanel {
         jScrollPane3.setViewportView(tblDataJenis);
 
         dataJenis.add(jScrollPane3);
-        jScrollPane3.setBounds(64, 146, 910, 390);
+        jScrollPane3.setBounds(44, 146, 920, 390);
 
         btnTambah.setBackground(new java.awt.Color(0, 153, 0));
         btnTambah.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
@@ -224,11 +225,11 @@ public class jenis_Barang extends javax.swing.JPanel {
             }
         });
         dataJenis.add(btnTambah);
-        btnTambah.setBounds(60, 100, 80, 30);
+        btnTambah.setBounds(50, 100, 80, 30);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-search-22.png"))); // NOI18N
         dataJenis.add(jLabel7);
-        jLabel7.setBounds(940, 100, 30, 30);
+        jLabel7.setBounds(930, 100, 40, 30);
 
         tCari.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         tCari.addActionListener(new java.awt.event.ActionListener() {
@@ -242,7 +243,7 @@ public class jenis_Barang extends javax.swing.JPanel {
             }
         });
         dataJenis.add(tCari);
-        tCari.setBounds(710, 100, 260, 30);
+        tCari.setBounds(700, 100, 260, 30);
 
         btnUbah.setBackground(new java.awt.Color(0, 153, 0));
         btnUbah.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
@@ -254,7 +255,7 @@ public class jenis_Barang extends javax.swing.JPanel {
             }
         });
         dataJenis.add(btnUbah);
-        btnUbah.setBounds(170, 100, 72, 30);
+        btnUbah.setBounds(150, 100, 72, 30);
 
         btnHapus.setBackground(new java.awt.Color(0, 153, 0));
         btnHapus.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
@@ -266,27 +267,25 @@ public class jenis_Barang extends javax.swing.JPanel {
             }
         });
         dataJenis.add(btnHapus);
-        btnHapus.setBounds(270, 100, 72, 30);
+        btnHapus.setBounds(250, 100, 72, 30);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PANEL.png"))); // NOI18N
-        dataJenis.add(jLabel4);
-        jLabel4.setBounds(0, 0, 1050, 580);
+        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
+        dataJenis.add(jSeparator2);
+        jSeparator2.setBounds(40, 40, 920, 10);
 
-        mainPanel.add(dataJenis);
-        dataJenis.setBounds(0, 0, 1050, 580);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bg_panel (1).png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        dataJenis.add(jLabel3);
+        jLabel3.setBounds(0, 0, 0, 0);
 
-        tambahJenis.setLayout(null);
+        mainPanel.add(dataJenis, "card2");
+
+        tambahJenis.setBackground(new java.awt.Color(138, 195, 153));
 
         jLabel17.setFont(new java.awt.Font("Franklin Gothic Book", 0, 18)); // NOI18N
         jLabel17.setText("Tambah Jenis Barang");
-        tambahJenis.add(jLabel17);
-        jLabel17.setBounds(36, 35, 168, 21);
 
         jSeparator17.setForeground(new java.awt.Color(0, 0, 0));
-        tambahJenis.add(jSeparator17);
-        jSeparator17.setBounds(36, 62, 930, 3);
-        tambahJenis.add(jLabel18);
-        jLabel18.setBounds(997, 94, 0, 0);
 
         btnSimpan.setBackground(new java.awt.Color(0, 153, 0));
         btnSimpan.setFont(new java.awt.Font("Franklin Gothic Book", 1, 13)); // NOI18N
@@ -297,8 +296,6 @@ public class jenis_Barang extends javax.swing.JPanel {
                 btnSimpanActionPerformed(evt);
             }
         });
-        tambahJenis.add(btnSimpan);
-        btnSimpan.setBounds(110, 90, 80, 30);
 
         btnBatal.setFont(new java.awt.Font("Franklin Gothic Book", 1, 13)); // NOI18N
         btnBatal.setText("Batal");
@@ -307,20 +304,12 @@ public class jenis_Barang extends javax.swing.JPanel {
                 btnBatalActionPerformed(evt);
             }
         });
-        tambahJenis.add(btnBatal);
-        btnBatal.setBounds(230, 90, 72, 30);
 
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Kode Jenis");
-        tambahJenis.add(jLabel1);
-        jLabel1.setBounds(100, 210, 100, 16);
 
         jLabel2.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nama Jenis");
-        tambahJenis.add(jLabel2);
-        jLabel2.setBounds(100, 320, 110, 20);
 
         tKodeJenis.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -332,20 +321,62 @@ public class jenis_Barang extends javax.swing.JPanel {
                 tKodeJenisActionPerformed(evt);
             }
         });
-        tambahJenis.add(tKodeJenis);
-        tKodeJenis.setBounds(100, 230, 840, 40);
-        tambahJenis.add(tNamaJenis);
-        tNamaJenis.setBounds(100, 340, 840, 40);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PANEL.png"))); // NOI18N
-        tambahJenis.add(jLabel3);
-        jLabel3.setBounds(0, 0, 1050, 600);
+        javax.swing.GroupLayout tambahJenisLayout = new javax.swing.GroupLayout(tambahJenis);
+        tambahJenis.setLayout(tambahJenisLayout);
+        tambahJenisLayout.setHorizontalGroup(
+            tambahJenisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tambahJenisLayout.createSequentialGroup()
+                .addGroup(tambahJenisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jSeparator17)
+                    .addGroup(tambahJenisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(tambahJenisLayout.createSequentialGroup()
+                            .addGap(40, 40, 40)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(tambahJenisLayout.createSequentialGroup()
+                            .addGap(50, 50, 50)
+                            .addComponent(btnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(20, 20, 20)
+                            .addComponent(btnBatal))
+                        .addGroup(tambahJenisLayout.createSequentialGroup()
+                            .addGap(50, 50, 50)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(tambahJenisLayout.createSequentialGroup()
+                            .addGap(50, 50, 50)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(tambahJenisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(tambahJenisLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(tNamaJenis, javax.swing.GroupLayout.PREFERRED_SIZE, 937, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, tambahJenisLayout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(tKodeJenis, javax.swing.GroupLayout.PREFERRED_SIZE, 937, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(39, 63, Short.MAX_VALUE))
+        );
+        tambahJenisLayout.setVerticalGroup(
+            tambahJenisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tambahJenisLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel17)
+                .addGap(1, 1, 1)
+                .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addGroup(tambahJenisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(70, 70, 70)
+                .addComponent(jLabel1)
+                .addGap(4, 4, 4)
+                .addComponent(tKodeJenis, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(tNamaJenis, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
-        mainPanel.add(tambahJenis);
-        tambahJenis.setBounds(0, 0, 1050, 580);
+        mainPanel.add(tambahJenis, "card3");
 
-        add(mainPanel);
-        mainPanel.setBounds(0, 0, 1050, 580);
+        add(mainPanel, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
@@ -487,12 +518,12 @@ public class jenis_Barang extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator17;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JTextField tCari;
     private javax.swing.JTextField tKodeJenis;
