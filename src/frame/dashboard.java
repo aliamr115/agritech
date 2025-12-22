@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-//import frame.About;
+import frame.About;
 //import panel.barang_Keluar;
 import frame.barang_Masuk;
 import frame.formBarang;
