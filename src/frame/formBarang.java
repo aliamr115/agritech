@@ -260,9 +260,9 @@ public class formBarang extends javax.swing.JPanel {
         btnSimpan1 = new javax.swing.JButton();
         btnBatal1 = new javax.swing.JButton();
 
-        setLayout(new java.awt.CardLayout());
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        mainPanel.setLayout(new java.awt.CardLayout());
+        mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         dataBarang.setBackground(new java.awt.Color(138, 195, 153));
 
@@ -386,7 +386,7 @@ public class formBarang extends javax.swing.JPanel {
                 .addGap(127, 127, 127))
         );
 
-        mainPanel.add(dataBarang, "card2");
+        mainPanel.add(dataBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1091, -1));
 
         tambahBarang.setBackground(new java.awt.Color(138, 195, 153));
 
@@ -555,9 +555,9 @@ public class formBarang extends javax.swing.JPanel {
                 .addContainerGap(203, Short.MAX_VALUE))
         );
 
-        mainPanel.add(tambahBarang, "card3");
+        mainPanel.add(tambahBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1091, -1));
 
-        add(mainPanel, "card2");
+        add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1091, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
