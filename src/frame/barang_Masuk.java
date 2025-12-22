@@ -472,9 +472,9 @@ public class barang_Masuk extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        setLayout(new java.awt.CardLayout());
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        mainPanel.setLayout(new java.awt.CardLayout());
+        mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         dataBarangMasuk.setBackground(new java.awt.Color(138, 195, 153));
 
@@ -810,7 +810,7 @@ public class barang_Masuk extends javax.swing.JPanel {
                 .addComponent(tambahBarangMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        mainPanel.add(dataBarangMasuk, "card2");
+        mainPanel.add(dataBarangMasuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1098, -1));
 
         detailBarangMasuk.setBackground(new java.awt.Color(138, 195, 153));
         detailBarangMasuk.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -955,9 +955,9 @@ public class barang_Masuk extends javax.swing.JPanel {
                 .addGap(0, 624, Short.MAX_VALUE))
         );
 
-        mainPanel.add(detailBarangMasuk, "card3");
+        mainPanel.add(detailBarangMasuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1098, -1));
 
-        add(mainPanel, "card2");
+        add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1098, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembaliActionPerformed
