@@ -36,11 +36,11 @@ public class formBarang extends javax.swing.JPanel {
         
 //        conn = new koneksi().configDB(); //membuat koneksi ke database
 //
-//        //card layout
+        //card layout
 //        mainPanel.setLayout(new CardLayout()); //mengatur layout panel utama
 //        mainPanel.add(dataBarang, "dataBarang"); //menambahkan panel data (panel tabel baranng), nama kartu 
 //        mainPanel.add(tambahBarang, "tambahBarang"); //menambahkan panel form tambah / edit, digunakan saat klik tambah?edit
-//        
+        
         setTableModel(); //struktur tabel
         loadDataBarang(); //mengisi tabel dari database, menjalankan Select*From barang, dan memasukkan data ke jtable
         ComboBarang(); //mengisi combobox, kodeJenisBarang & namajenisbarang supaya user tinggal pilih, ngga ngetik manual
@@ -267,8 +267,9 @@ public class formBarang extends javax.swing.JPanel {
 
         setLayout(new java.awt.CardLayout());
 
-        mainPanel.setLayout(new java.awt.CardLayout());
+        mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tblDataBarang.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         tblDataBarang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -290,7 +291,7 @@ public class formBarang extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel1.setText("Data Barang");
 
-        btnHapus.setFont(new java.awt.Font("Segoe UI Historic", 1, 12)); // NOI18N
+        btnHapus.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
         btnHapus.setText("Hapus");
         btnHapus.setBorderPainted(false);
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
@@ -301,7 +302,7 @@ public class formBarang extends javax.swing.JPanel {
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-search-20.png"))); // NOI18N
 
-        btnUbah.setFont(new java.awt.Font("Segoe UI Historic", 1, 12)); // NOI18N
+        btnUbah.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
         btnUbah.setText("Ubah");
         btnUbah.setBorderPainted(false);
         btnUbah.addActionListener(new java.awt.event.ActionListener() {
@@ -310,7 +311,7 @@ public class formBarang extends javax.swing.JPanel {
             }
         });
 
-        btnTambah.setFont(new java.awt.Font("Segoe UI Historic", 1, 12)); // NOI18N
+        btnTambah.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
         btnTambah.setText("Tambah");
         btnTambah.setBorderPainted(false);
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
@@ -319,6 +320,7 @@ public class formBarang extends javax.swing.JPanel {
             }
         });
 
+        tCari.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         tCari.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tCariKeyReleased(evt);
@@ -342,25 +344,21 @@ public class formBarang extends javax.swing.JPanel {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(jSeparator1))
                         .addContainerGap())
-                    .addGroup(dataBarangLayout.createSequentialGroup()
-                        .addGroup(dataBarangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(dataBarangLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(btnTambah)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnHapus)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnUbah)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dataBarangLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tCari, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(129, 129, 129))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dataBarangLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1079, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(dataBarangLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(btnTambah)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnHapus)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnUbah)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(tCari, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))))
         );
         dataBarangLayout.setVerticalGroup(
             dataBarangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -369,23 +367,26 @@ public class formBarang extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(dataBarangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tCari))
-                .addGap(14, 14, 14)
-                .addGroup(dataBarangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnHapus)
-                    .addComponent(btnUbah)
-                    .addComponent(btnTambah))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addGroup(dataBarangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dataBarangLayout.createSequentialGroup()
+                        .addGroup(dataBarangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(dataBarangLayout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addGroup(dataBarangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btnHapus)
+                                    .addComponent(btnUbah)
+                                    .addComponent(btnTambah)))
+                            .addComponent(jLabel11))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tCari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(136, Short.MAX_VALUE))
         );
 
-        mainPanel.add(dataBarang, "card2");
+        mainPanel.add(dataBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Historic", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         jLabel3.setText("Kode Barang");
 
         tKodeBarang.addActionListener(new java.awt.event.ActionListener() {
@@ -394,7 +395,7 @@ public class formBarang extends javax.swing.JPanel {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI Historic", 1, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         jLabel4.setText("Kode Jenis Barang");
 
         tKodeJenisBarang.addActionListener(new java.awt.event.ActionListener() {
@@ -408,7 +409,7 @@ public class formBarang extends javax.swing.JPanel {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI Historic", 1, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         jLabel5.setText("Nama Jenis Barang");
 
         cNamaJnsBrng.addActionListener(new java.awt.event.ActionListener() {
@@ -422,10 +423,10 @@ public class formBarang extends javax.swing.JPanel {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI Historic", 1, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         jLabel6.setText("Nama Barang");
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI Historic", 1, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         jLabel7.setText("Harga");
 
         cSatuan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gr", "Kg", "Sak", "Liter", "Karung", "Botol", "Buah", "Unit", "Gram", "Hg", "Kwintal", "Ons", "Ton", "Pcs", " " }));
@@ -435,16 +436,16 @@ public class formBarang extends javax.swing.JPanel {
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI Historic", 1, 12)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         jLabel8.setText("Stok");
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI Historic", 1, 12)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         jLabel9.setText("Satuan");
 
         jLabel10.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel10.setText("Tambah Data Barang");
 
-        btnSimpan1.setFont(new java.awt.Font("Segoe UI Historic", 1, 12)); // NOI18N
+        btnSimpan1.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
         btnSimpan1.setText("Simpan");
         btnSimpan1.setBorderPainted(false);
         btnSimpan1.addActionListener(new java.awt.event.ActionListener() {
@@ -453,7 +454,7 @@ public class formBarang extends javax.swing.JPanel {
             }
         });
 
-        btnBatal1.setFont(new java.awt.Font("Segoe UI Historic", 1, 12)); // NOI18N
+        btnBatal1.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
         btnBatal1.setText("Batal");
         btnBatal1.setBorderPainted(false);
         btnBatal1.addActionListener(new java.awt.event.ActionListener() {
@@ -541,10 +542,10 @@ public class formBarang extends javax.swing.JPanel {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tStok, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(203, Short.MAX_VALUE))
         );
 
-        mainPanel.add(tambahBarang, "card4");
+        mainPanel.add(tambahBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1091, 693));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel2.setText("Tambah Data Barang");
@@ -598,7 +599,7 @@ public class formBarang extends javax.swing.JPanel {
                 .addContainerGap(605, Short.MAX_VALUE))
         );
 
-        mainPanel.add(tambah, "card2");
+        mainPanel.add(tambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         add(mainPanel, "card2");
     }// </editor-fold>//GEN-END:initComponents

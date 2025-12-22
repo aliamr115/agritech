@@ -215,7 +215,7 @@ public class jenis_Barang extends javax.swing.JPanel {
         jScrollPane3.setBounds(64, 146, 910, 390);
 
         btnTambah.setBackground(new java.awt.Color(0, 153, 0));
-        btnTambah.setFont(new java.awt.Font("Franklin Gothic Book", 1, 13)); // NOI18N
+        btnTambah.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
         btnTambah.setForeground(new java.awt.Color(255, 255, 255));
         btnTambah.setText("Tambah");
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
@@ -230,6 +230,7 @@ public class jenis_Barang extends javax.swing.JPanel {
         dataJenis.add(jLabel7);
         jLabel7.setBounds(940, 100, 30, 30);
 
+        tCari.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         tCari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tCariActionPerformed(evt);
@@ -244,7 +245,7 @@ public class jenis_Barang extends javax.swing.JPanel {
         tCari.setBounds(710, 100, 260, 30);
 
         btnUbah.setBackground(new java.awt.Color(0, 153, 0));
-        btnUbah.setFont(new java.awt.Font("Franklin Gothic Book", 1, 13)); // NOI18N
+        btnUbah.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
         btnUbah.setForeground(new java.awt.Color(255, 255, 255));
         btnUbah.setText("Ubah");
         btnUbah.addActionListener(new java.awt.event.ActionListener() {
@@ -256,7 +257,7 @@ public class jenis_Barang extends javax.swing.JPanel {
         btnUbah.setBounds(170, 100, 72, 30);
 
         btnHapus.setBackground(new java.awt.Color(0, 153, 0));
-        btnHapus.setFont(new java.awt.Font("Franklin Gothic Book", 1, 13)); // NOI18N
+        btnHapus.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
         btnHapus.setForeground(new java.awt.Color(255, 255, 255));
         btnHapus.setText("Hapus");
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
@@ -297,7 +298,7 @@ public class jenis_Barang extends javax.swing.JPanel {
             }
         });
         tambahJenis.add(btnSimpan);
-        btnSimpan.setBounds(860, 460, 80, 30);
+        btnSimpan.setBounds(110, 90, 80, 30);
 
         btnBatal.setFont(new java.awt.Font("Franklin Gothic Book", 1, 13)); // NOI18N
         btnBatal.setText("Batal");
@@ -307,19 +308,19 @@ public class jenis_Barang extends javax.swing.JPanel {
             }
         });
         tambahJenis.add(btnBatal);
-        btnBatal.setBounds(760, 460, 72, 30);
+        btnBatal.setBounds(230, 90, 72, 30);
 
-        jLabel1.setFont(new java.awt.Font("Franklin Gothic Book", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Kode Jenis");
         tambahJenis.add(jLabel1);
-        jLabel1.setBounds(100, 200, 100, 21);
+        jLabel1.setBounds(100, 210, 100, 16);
 
-        jLabel2.setFont(new java.awt.Font("Franklin Gothic Book", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nama Jenis");
         tambahJenis.add(jLabel2);
-        jLabel2.setBounds(100, 310, 110, 20);
+        jLabel2.setBounds(100, 320, 110, 20);
 
         tKodeJenis.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

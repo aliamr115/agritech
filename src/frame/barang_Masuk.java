@@ -98,8 +98,8 @@ public class barang_Masuk extends javax.swing.JPanel {
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("No Masuk");
         model.addColumn("ID User");
-        model.addColumn("Tanggal Masuk");
-        model.addColumn("Total Masuk");
+        model.addColumn("Tanggal");
+        model.addColumn("Total");
         
         try {
             //membuat objek user dan mengambil data dari database
@@ -125,10 +125,10 @@ public class barang_Masuk extends javax.swing.JPanel {
     
     void load_table_detailBarangMasuk(String noMasuk){
         DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("no_masuk");
-        model.addColumn("kode_barang");
-        model.addColumn("jml_masuk");
-        model.addColumn("subtotal_masuk");
+        model.addColumn("No Masuk");
+        model.addColumn("Kode Barang");
+        model.addColumn("Jumlah");
+        model.addColumn("Subtotal");
         
         try {
             String sql = "SELECT no_masuk, id_user, tgl_masuk, total_masuk FROM barangmasuk";
@@ -145,7 +145,7 @@ public class barang_Masuk extends javax.swing.JPanel {
             });
         }
            //set model ke JTable
-        tblDataBarangMasuk.setModel(model);
+        tblDetail.setModel(model);
         
         } catch (Exception e) {
             e.printStackTrace();
@@ -153,10 +153,10 @@ public class barang_Masuk extends javax.swing.JPanel {
     }       
     public void tampilkanTabelAtas(String noMasuk){//menampilkan tabel atas
         DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("no_masuk");
-        model.addColumn("id_user");
-        model.addColumn("tgl_masuk");
-        model.addColumn("total_masuk");
+        model.addColumn("No Masuk");
+        model.addColumn("1D User");
+        model.addColumn("Tanggal");
+        model.addColumn("Total");
         
         try {
             String sql = "SELECT * FROM barangmasuk WHERE no_masuk =?";
@@ -180,24 +180,29 @@ public class barang_Masuk extends javax.swing.JPanel {
     
     public void tampilkanTabelBawah(String noMasuk){ //menampilkan tabel detail bawah
         DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("no_masuk");
-        model.addColumn("kode_barang");
-        model.addColumn("jml_masuk");
-        model.addColumn("subtotal_masuk");
-        
-        try {
-            String sql = "SELECT d.no_masuk, b.kode_barang, b.nama_barang, b.harga, d.jml_masuk, d.subtotal_masuk "
-                        + "FROM detail_barangmasuk d JOIN barang b ON d.kode_barang = b.kode_barang WHERE d.no_masuk = ?";
+            model.addColumn("Kode Barang");
+            model.addColumn("Nama Barang");
+            model.addColumn("Harga");
+            model.addColumn("Jumlah");
+            model.addColumn("Subtotal");
+
+            try {
+                String sql = "SELECT b.kode_barang, b.nama_barang, b.harga, d.jml_masuk, d.subtotal_masuk "
+                            + "FROM detail_barangmasuk d "
+                            + "JOIN barang b ON d.kode_barang = b.kode_barang "
+                            + "WHERE d.no_masuk = ?";
+                
             PreparedStatement ps = koneksi.configDB().prepareStatement(sql);
             ps.setString(1, noMasuk);
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()){
                 model.addRow(new Object[]{
-                    rs.getString("no_masuk"),
-                    rs.getString("kode_barang"),
+                    rs.getInt("kode_barang"),
+                    rs.getString("nama_barang"),
+                    rs.getString("harga"),
                     rs.getInt("jml_masuk"),
-                    rs.getBigDecimal("subtotal_masuk"),
+                    rs.getBigDecimal("subtotal_masuk")
                 });
             }
             tblDetailBawah.setModel(model);
@@ -403,6 +408,8 @@ public class barang_Masuk extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         mainPanel = new javax.swing.JPanel();
         dataBarangMasuk = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -410,7 +417,6 @@ public class barang_Masuk extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblDataBarangMasuk = new javax.swing.JTable();
-        btnHapus = new javax.swing.JButton();
         btnTambah = new javax.swing.JButton();
         tCari = new javax.swing.JTextField();
         detailBarangMasuk = new javax.swing.JPanel();
@@ -425,6 +431,7 @@ public class barang_Masuk extends javax.swing.JPanel {
         jScrollPane5 = new javax.swing.JScrollPane();
         tblDetailBawah = new javax.swing.JTable();
         btnUbah = new javax.swing.JButton();
+        btnHapus = new javax.swing.JButton();
         tambahBarangMasuk = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jSeparator9 = new javax.swing.JSeparator();
@@ -449,6 +456,21 @@ public class barang_Masuk extends javax.swing.JPanel {
         tSubtotal = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jcTanggal = new com.toedter.calendar.JDateChooser();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblDetail = new javax.swing.JTable();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         setLayout(new java.awt.CardLayout());
 
@@ -460,6 +482,7 @@ public class barang_Masuk extends javax.swing.JPanel {
         jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
 
         tblDataBarangMasuk.setBackground(new java.awt.Color(204, 255, 204));
+        tblDataBarangMasuk.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         tblDataBarangMasuk.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -478,18 +501,8 @@ public class barang_Masuk extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(tblDataBarangMasuk);
 
-        btnHapus.setBackground(new java.awt.Color(0, 153, 0));
-        btnHapus.setFont(new java.awt.Font("Poppins", 1, 12)); // NOI18N
-        btnHapus.setForeground(new java.awt.Color(255, 255, 255));
-        btnHapus.setText("Hapus");
-        btnHapus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHapusActionPerformed(evt);
-            }
-        });
-
         btnTambah.setBackground(new java.awt.Color(0, 153, 0));
-        btnTambah.setFont(new java.awt.Font("Poppins", 1, 12)); // NOI18N
+        btnTambah.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
         btnTambah.setForeground(new java.awt.Color(255, 255, 255));
         btnTambah.setText("Tambah");
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
@@ -516,8 +529,6 @@ public class barang_Masuk extends javax.swing.JPanel {
             .addGroup(dataBarangMasukLayout.createSequentialGroup()
                 .addGap(64, 64, 64)
                 .addComponent(btnTambah)
-                .addGap(43, 43, 43)
-                .addComponent(btnHapus)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(122, 122, 122)
@@ -548,12 +559,11 @@ public class barang_Masuk extends javax.swing.JPanel {
                         .addComponent(jLabel5)
                         .addGap(16, 16, 16))
                     .addGroup(dataBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnHapus)
                         .addComponent(btnTambah)
                         .addComponent(tCari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(25, 25, 25)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 27, Short.MAX_VALUE))
+                .addGap(0, 30, Short.MAX_VALUE))
         );
 
         mainPanel.add(dataBarangMasuk, "card2");
@@ -570,7 +580,7 @@ public class barang_Masuk extends javax.swing.JPanel {
         jSeparator7.setForeground(new java.awt.Color(0, 0, 0));
 
         btnKembali.setBackground(new java.awt.Color(153, 255, 0));
-        btnKembali.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        btnKembali.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
         btnKembali.setText("Kembali");
         btnKembali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -579,6 +589,7 @@ public class barang_Masuk extends javax.swing.JPanel {
         });
 
         tblDetailAtas.setBackground(new java.awt.Color(204, 255, 204));
+        tblDetailAtas.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         tblDetailAtas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -603,6 +614,7 @@ public class barang_Masuk extends javax.swing.JPanel {
         jLabel11.setText("Detail Barang Masuk");
 
         tblDetailBawah.setBackground(new java.awt.Color(204, 255, 204));
+        tblDetailBawah.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         tblDetailBawah.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -622,11 +634,21 @@ public class barang_Masuk extends javax.swing.JPanel {
         jScrollPane5.setViewportView(tblDetailBawah);
 
         btnUbah.setBackground(new java.awt.Color(153, 255, 0));
-        btnUbah.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        btnUbah.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
         btnUbah.setText("Ubah");
         btnUbah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUbahActionPerformed(evt);
+            }
+        });
+
+        btnHapus.setBackground(new java.awt.Color(0, 153, 0));
+        btnHapus.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
+        btnHapus.setForeground(new java.awt.Color(255, 255, 255));
+        btnHapus.setText("Hapus");
+        btnHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHapusActionPerformed(evt);
             }
         });
 
@@ -652,9 +674,15 @@ public class barang_Masuk extends javax.swing.JPanel {
                                 .addComponent(btnKembali)
                                 .addGap(39, 39, 39)
                                 .addComponent(btnUbah)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel7)
-                                .addGap(5, 5, 5))))
+                                .addGroup(detailBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(detailBarangMasukLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel7)
+                                        .addGap(5, 5, 5))
+                                    .addGroup(detailBarangMasukLayout.createSequentialGroup()
+                                        .addGap(34, 34, 34)
+                                        .addComponent(btnHapus)
+                                        .addGap(0, 0, Short.MAX_VALUE))))))
                     .addGroup(detailBarangMasukLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(detailBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -678,7 +706,8 @@ public class barang_Masuk extends javax.swing.JPanel {
                     .addComponent(jLabel7)
                     .addGroup(detailBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnKembali)
-                        .addComponent(btnUbah)))
+                        .addComponent(btnUbah)
+                        .addComponent(btnHapus)))
                 .addGap(41, 41, 41)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
@@ -687,7 +716,7 @@ public class barang_Masuk extends javax.swing.JPanel {
                 .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 21, Short.MAX_VALUE))
+                .addGap(0, 22, Short.MAX_VALUE))
         );
 
         mainPanel.add(detailBarangMasuk, "card3");
@@ -698,7 +727,7 @@ public class barang_Masuk extends javax.swing.JPanel {
         jSeparator9.setForeground(new java.awt.Color(0, 0, 0));
 
         btnSimpan.setBackground(new java.awt.Color(153, 255, 0));
-        btnSimpan.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        btnSimpan.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
         btnSimpan.setText("Simpan");
         btnSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -706,16 +735,16 @@ public class barang_Masuk extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         jLabel1.setText("No Masuk");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         jLabel2.setText("ID User");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         jLabel4.setText("Tanggal  Masuk");
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         jLabel10.setText("Total Masuk");
 
         tNoMasuk.addActionListener(new java.awt.event.ActionListener() {
@@ -737,7 +766,7 @@ public class barang_Masuk extends javax.swing.JPanel {
         });
 
         btnBatalTambah.setBackground(new java.awt.Color(153, 255, 0));
-        btnBatalTambah.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        btnBatalTambah.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
         btnBatalTambah.setText("Batal");
         btnBatalTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -745,7 +774,7 @@ public class barang_Masuk extends javax.swing.JPanel {
             }
         });
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         jLabel12.setText("Kode Barang");
 
         tKodeBarang.addActionListener(new java.awt.event.ActionListener() {
@@ -754,7 +783,7 @@ public class barang_Masuk extends javax.swing.JPanel {
             }
         });
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         jLabel13.setText("Nama Barang");
 
         tHarga.addActionListener(new java.awt.event.ActionListener() {
@@ -779,12 +808,13 @@ public class barang_Masuk extends javax.swing.JPanel {
             }
         });
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         jLabel14.setText("Harga");
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         jLabel15.setText("Jumlah");
 
+        cNamaBarang.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         cNamaBarang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cNamaBarang.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -801,53 +831,76 @@ public class barang_Masuk extends javax.swing.JPanel {
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel16.setText("Subtotal");
 
+        tblDetail.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tblDetail);
+
         javax.swing.GroupLayout tambahBarangMasukLayout = new javax.swing.GroupLayout(tambahBarangMasuk);
         tambahBarangMasuk.setLayout(tambahBarangMasukLayout);
         tambahBarangMasukLayout.setHorizontalGroup(
             tambahBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tambahBarangMasukLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(jLabel9)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(tambahBarangMasukLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(tambahBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator9, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(tambahBarangMasukLayout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addContainerGap(863, Short.MAX_VALUE))
-                    .addGroup(tambahBarangMasukLayout.createSequentialGroup()
-                        .addGroup(tambahBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(tambahBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
                             .addGroup(tambahBarangMasukLayout.createSequentialGroup()
-                                .addComponent(jLabel16)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(tambahBarangMasukLayout.createSequentialGroup()
-                                .addGroup(tambahBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(tambahBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel10)
-                                        .addComponent(jLabel4)
-                                        .addComponent(jLabel2)
-                                        .addComponent(jLabel1)
-                                        .addGroup(tambahBarangMasukLayout.createSequentialGroup()
-                                            .addComponent(btnSimpan)
-                                            .addGap(42, 42, 42)
-                                            .addComponent(btnBatalTambah))
-                                        .addComponent(tIdUser, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
-                                        .addComponent(tNoMasuk)
-                                        .addComponent(tTotalMasuk))
-                                    .addComponent(jcTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(147, 147, 147)
                                 .addGroup(tambahBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel12)
-                                    .addComponent(tHarga)
-                                    .addComponent(tKodeBarang)
-                                    .addComponent(tJumlah, javax.swing.GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE)
-                                    .addComponent(jLabel14)
-                                    .addComponent(jLabel15)
-                                    .addComponent(cNamaBarang, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1)
+                                    .addGroup(tambahBarangMasukLayout.createSequentialGroup()
+                                        .addComponent(btnSimpan)
+                                        .addGap(42, 42, 42)
+                                        .addComponent(btnBatalTambah))
+                                    .addComponent(tIdUser, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
+                                    .addComponent(tNoMasuk)
+                                    .addComponent(tTotalMasuk)
+                                    .addComponent(jcTanggal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(tambahBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(tambahBarangMasukLayout.createSequentialGroup()
+                                        .addGroup(tambahBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel12)
+                                            .addComponent(tKodeBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(9, 9, 9))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tambahBarangMasukLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(tambahBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(tambahBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(jLabel13)
+                                                .addComponent(tHarga)
+                                                .addComponent(tJumlah)
+                                                .addComponent(jLabel14)
+                                                .addComponent(jLabel15)
+                                                .addComponent(cNamaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(tambahBarangMasukLayout.createSequentialGroup()
+                                                .addGap(6, 6, 6)
+                                                .addComponent(jLabel16)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(tSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                        .addContainerGap(50, Short.MAX_VALUE))))
+            .addGroup(tambahBarangMasukLayout.createSequentialGroup()
+                .addGroup(tambahBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tambahBarangMasukLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jLabel9))
+                    .addGroup(tambahBarangMasukLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         tambahBarangMasukLayout.setVerticalGroup(
             tambahBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -862,46 +915,47 @@ public class barang_Masuk extends javax.swing.JPanel {
                     .addComponent(btnBatalTambah))
                 .addGap(17, 17, 17)
                 .addComponent(jLabel9)
+                .addGap(10, 10, 10)
                 .addGroup(tambahBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tambahBarangMasukLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tNoMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tIdUser, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel2)
+                        .addGap(10, 10, 10)
+                        .addComponent(tIdUser, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel4)
+                        .addGap(10, 10, 10)
+                        .addComponent(jcTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel10)
+                        .addGap(10, 10, 10)
+                        .addComponent(tTotalMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(tambahBarangMasukLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tKodeBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cNamaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(40, 40, 40)
-                .addGroup(tambahBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel14))
-                .addGap(18, 18, 18)
-                .addGroup(tambahBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(tHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jcTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(tambahBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel15))
-                .addGap(18, 18, 18)
-                .addGroup(tambahBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tTotalMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
-                .addGroup(tambahBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16))
-                .addGap(39, 39, 39))
+                        .addComponent(cNamaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel14)
+                        .addGap(10, 10, 10)
+                        .addComponent(tHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel15)
+                        .addGap(10, 10, 10)
+                        .addComponent(tJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(tambahBarangMasukLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel16)
+                            .addComponent(tSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67))
         );
 
         mainPanel.add(tambahBarangMasuk, "card4");
@@ -948,15 +1002,6 @@ public class barang_Masuk extends javax.swing.JPanel {
         // TODO add your handling code here:
         simpanBarangMasukDanDetail();
     }//GEN-LAST:event_btnSimpanActionPerformed
-
-    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
-        // TODO add your handling code here:
-        Model_BarangMasuk bm = new Model_BarangMasuk();
-        bm.setNo_masuk(tNoMasuk.getText());
-        bm.hapusBarangMasuk();
-        load_table_dataBarangMasuk();
-        reset();
-    }//GEN-LAST:event_btnHapusActionPerformed
 
     private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
         // TODO add your handling code here:
@@ -1072,6 +1117,15 @@ public class barang_Masuk extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_tHargaKeyReleased
 
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        // TODO add your handling code here:
+         Model_BarangMasuk bm = new Model_BarangMasuk();
+        bm.setNo_masuk(tNoMasuk.getText());
+        bm.hapusBarangMasuk();
+        tampilDataBarangMasuk();
+        reset();
+    }//GEN-LAST:event_btnHapusActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBatalTambah;
     private javax.swing.JButton btnHapus;
@@ -1098,6 +1152,8 @@ public class barang_Masuk extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
@@ -1105,6 +1161,7 @@ public class barang_Masuk extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JTable jTable1;
     private com.toedter.calendar.JDateChooser jcTanggal;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JTextField tCari;
@@ -1117,6 +1174,7 @@ public class barang_Masuk extends javax.swing.JPanel {
     private javax.swing.JTextField tTotalMasuk;
     private javax.swing.JPanel tambahBarangMasuk;
     private javax.swing.JTable tblDataBarangMasuk;
+    private javax.swing.JTable tblDetail;
     private javax.swing.JTable tblDetailAtas;
     private javax.swing.JTable tblDetailBawah;
     // End of variables declaration//GEN-END:variables
