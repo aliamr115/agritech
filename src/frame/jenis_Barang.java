@@ -183,7 +183,7 @@ public class jenis_Barang extends javax.swing.JPanel {
 
         mainPanel.setLayout(new java.awt.CardLayout());
 
-        dataJenis.setBackground(new java.awt.Color(138, 195, 153));
+        dataJenis.setBackground(new java.awt.Color(255, 255, 255));
         dataJenis.setLayout(null);
 
         jLabel5.setFont(new java.awt.Font("Franklin Gothic Book", 0, 18)); // NOI18N
@@ -281,7 +281,7 @@ public class jenis_Barang extends javax.swing.JPanel {
 
         mainPanel.add(dataJenis, "card2");
 
-        tambahJenis.setBackground(new java.awt.Color(138, 195, 153));
+        tambahJenis.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel17.setFont(new java.awt.Font("Franklin Gothic Book", 0, 18)); // NOI18N
         jLabel17.setText("Tambah Jenis Barang");
