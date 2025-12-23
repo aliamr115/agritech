@@ -291,7 +291,7 @@ public class dashboard extends javax.swing.JFrame {
         addMenu(menuDasbor, menuData, menuKelola, menuLaporan, menuAbout, menuLogout);     
     }
     
-    private void addMenu(MenuItem... menu) {
+    private void addMenu(MenuItem... menu) { // Method untuk menambahkan menu dan submenu
         for (int i = 0; i < menu.length; i++) {
             pn_menu.add(menu[i]);
             ArrayList<MenuItem> subMenu = menu[i].getSubMenu();

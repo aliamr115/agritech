@@ -23,28 +23,28 @@ public class MenuItem extends javax.swing.JPanel {
     //sebagai wadah untuk menyimpan semua submenu dari suatu menu dalam bentuk ArrayList<MenuItem>, 
     //dengan referensi yang tidak dapat diubah karena memakai final
     
-    private ActionListener act;
+    private ActionListener act; // ActionListener ini menangani aksi saat menu diklik digunakan untuk menjalankan perpindahan panel
     
     public MenuItem(Icon icon, boolean sbm, Icon iconSub, String menuName, ActionListener act, MenuItem... subMenu) {
         initComponents();
         setLayout(new FlowLayout(FlowLayout.LEFT, 15, 25)); //mengatur margin panel, 15 adalah jarak horizontal antar icon dan teks
-        lb_icon.setIcon(icon); 
-        lb_menuName.setText(menuName);
+        lb_icon.setIcon(icon); // Mengatur icon utama yang ditampilkan pada menu
+        lb_menuName.setText(menuName); // Mengatur teks nama menu sesuai dengan parameter menuName
         lb_menuName.setIconTextGap(3); //untuk mengatur jarak antara icon dan teks
-        lb_iconSub.setIcon(iconSub);
-        lb_iconSub.setVisible(sbm);
+        lb_iconSub.setIcon(iconSub); // Mengatur icon submenu
+        lb_iconSub.setVisible(sbm); // Menentukan apakah icon submenu ditampilkan atau disembunyikan Jika sbm bernilai true dan sebaliknya
         
         if (act != null) {
-            this.act = act;
+            this.act = act; // Menyimpan ActionListener ke variabel act yg digunakan untuk menjalankan aksi saat menu diklik
         }
 
         this.setSize(new Dimension(Integer.MAX_VALUE, 45));
         this.setMaximumSize(new Dimension(Integer.MAX_VALUE, 45));
         this.setMinimumSize(new Dimension(Integer.MAX_VALUE, 45));
 
-        for (int i = 0; i < subMenu.length; i++) {
-            this.subMenu.add(subMenu[i]);
-            subMenu[i].setVisible(false);
+        for (int i = 0; i < subMenu.length; i++) { // Perulangan untuk memproses semua submenu yang dikirim ke constructor
+            this.subMenu.add(subMenu[i]); // Menambahkan submenu ke dalam ArrayList subMenu
+            subMenu[i].setVisible(false); // Menyembunyikan submenu saat pertama kali ditampilkan
         }
         
     }
@@ -104,10 +104,10 @@ public class MenuItem extends javax.swing.JPanel {
         if (showing) { //Mengecek apakah menu sedang ditampilkan (showing == true)
             hideMenu(); //jika menu sedang tampil, maka menu disembunyikan
         } else {
-            showMenu(); //ika menu sedang tampil, maka menu disembunyikan
+            showMenu(); //jika menu sedang tampil, maka menu disembunyikan
         }
         if (act != null) {
-            act.actionPerformed(null);
+            act.actionPerformed(null); // Menjalankan ActionListener jika menu memiliki aksi
         }
         
     }//GEN-LAST:event_formMousePressed
@@ -119,12 +119,12 @@ public class MenuItem extends javax.swing.JPanel {
     private javax.swing.JLabel lb_menuName;
     // End of variables declaration//GEN-END:variables
 
-    private void hideMenu() {
-        new Thread(new Runnable() {
+    private void hideMenu() { // Method untuk menyembunyikan submenu
+        new Thread(new Runnable() { // Membuat thread baru agar proses berjalan tanpa mengganggu UI
             @Override
-            public void run() {
-                for (int i = subMenu.size() - 1; i >= 0; i--) {
-                    sleep();
+            public void run() { // Kode di dalam method ini akan dijalankan oleh thread
+                for (int i = subMenu.size() - 1; i >= 0; i--) { // Perulangan dari submenu terakhir ke submenu pertama
+                    sleep(); // Memberi jeda waktu 
                     subMenu.get(i).setVisible(false);
                     subMenu.get(i).hideMenu();
                 }
@@ -132,10 +132,10 @@ public class MenuItem extends javax.swing.JPanel {
                 getParent().revalidate();
                 showing = false;
             }
-        }).start();
+        }).start(); // Menjalankan thread
     }
 
-    private void showMenu() {
+    private void showMenu() { // Method untuk menampilkan submenu
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -150,7 +150,7 @@ public class MenuItem extends javax.swing.JPanel {
         }).start();
     }
     
-    private void sleep() {
+    private void sleep() { // Method sleep untuk memberi jeda waktu
         try {
             Thread.sleep(20);
         } catch (Exception e) {
