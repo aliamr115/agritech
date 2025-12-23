@@ -82,7 +82,7 @@ public class Model_Barang extends koneksi{ //Model : digunakan untuk mendeklaras
             query = "INSERT INTO barang (kode_jenis, nama_barang, satuan, harga, stok) "
                     + "VALUES (?, ?, ?, ?, ?)";
             ps = conn.prepareStatement(query);
-//            ps.setInt(1, kode_barang);
+            ps.setInt(1, kode_barang);
             ps.setInt(1, kode_jenis);
             ps.setString(2, nama_barang);
             ps.setString(3, satuan);
@@ -123,10 +123,10 @@ public class Model_Barang extends koneksi{ //Model : digunakan untuk mendeklaras
             ps = conn.prepareStatement(query);
             ps.setInt(1, kode_barang);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "DaTA BERASIL DIHAPUS!");
+            JOptionPane.showMessageDialog(null, "DATA BERASIL DIHAPUS!");
             
         } catch (SQLException sQLException) {
-            JOptionPane.showMessageDialog(null, "DaTA GAGAL DIHAPUS: " + sQLException.getMessage());
+            JOptionPane.showMessageDialog(null, "DATA GAGAL DIHAPUS: " + sQLException.getMessage());
            
     }
     }
@@ -142,7 +142,7 @@ public class Model_Barang extends koneksi{ //Model : digunakan untuk mendeklaras
             st = conn.createStatement();
             rs = st.executeQuery(query);
         } catch (SQLException sQLException) {
-            JOptionPane.showMessageDialog(null, "Data gagal di tampilkan : " + sQLException.getMessage());
+            JOptionPane.showMessageDialog(null, "DATA GAGAL DITAMPILKAN! : " + sQLException.getMessage());
         }
         return rs;
     }
@@ -179,7 +179,7 @@ public class Model_Barang extends koneksi{ //Model : digunakan untuk mendeklaras
             rs = ps.executeQuery();
 
         } catch (SQLException sQLException) {
-            JOptionPane.showMessageDialog(null, "gagal Cari data : " + sQLException.getMessage());
+            JOptionPane.showMessageDialog(null, "GAGAL CARI DATA : " + sQLException.getMessage());
         }
         return rs;
     }
@@ -191,7 +191,7 @@ public class Model_Barang extends koneksi{ //Model : digunakan untuk mendeklaras
         return rs;
 
     } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, "Gagal load nama barang: " + e.getMessage());
+        JOptionPane.showMessageDialog(null, "GAGAL LOAD NAMA BARANG: " + e.getMessage());
         return null;
     }
 }

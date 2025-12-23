@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 public class Model_BarangMasuk extends koneksi{
     private String no_masuk, tgl_masuk;
     private int total_masuk;
-    //private Model_User idUser;
+    private Model_User idUser;
     private Connection cn = null;
     private PreparedStatement ps;
     private Statement st;
@@ -53,13 +53,13 @@ public Model_BarangMasuk(){
         this.total_masuk = total_masuk;
     }
 
-    //public Model_User getIdUser() {
-      //  return idUser;
-    //}
+    public Model_User getIdUser() {
+        return idUser;
+    }
 
-    //public void setIdUser(Model_User idUser) {
-      //  this.idUser = idUser;
-    //}
+    public void setIdUser(Model_User idUser) {
+        this.idUser = idUser;
+    }
     
     public void tambahBarangMasuk(){
         query = "INSERT INTO barangmasuk VALUES (?, ?, ?)";

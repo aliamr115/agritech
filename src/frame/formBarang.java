@@ -24,11 +24,6 @@ import java.sql.SQLException;
  */
 public class formBarang extends javax.swing.JPanel {
 
-//  private Connection conn;
-//  private DefaultTableModel model;
-//  private boolean isEdit = false;
-//  private int selectedId;
-//  
 
     /**
      * Creates new form formBarang
@@ -36,14 +31,8 @@ public class formBarang extends javax.swing.JPanel {
     public formBarang() {
         initComponents();
         
-//        conn = new koneksi().configDB(); //membuat koneksi ke database
-//
-        //card layout
-//        mainPanel.setLayout(new CardLayout()); //mengatur layout panel utama
-//        mainPanel.add(dataBarang, "dataBarang"); //menambahkan panel data (panel tabel baranng), nama kartu 
-//        mainPanel.add(tambahBarang, "tambahBarang"); //menambahkan panel form tambah / edit, digunakan saat klik tambah?edit
+       mainPanel.add(tambahBarang, "tambahBarang"); //menambahkan panel form tambah / edit, digunakan saat klik tambah?edit
         setTableModel(); //struktur tabel
-        //loadDataBarang();//mengisi tabel dari database, menjalankan Select*From barang, dan memasukkan data ke jtable
         ComboBarang(); //mengisi combobox, kodeJenisBarang & namajenisbarang supaya user tinggal pilih, ngga ngetik manual
     }
     
@@ -80,44 +69,11 @@ public class formBarang extends javax.swing.JPanel {
         } catch (SQLException sQLException) {
             JOptionPane.showMessageDialog(null, "Eror Tabel : " + sQLException.getMessage());
         }
-//        model = new DefaultTableModel(kolom, 0); //membuat model tabel dengan jumlah baris awal (kosong)
-//        tblDataBarang.setModel(model); 
+
     }
     
-    private void loadDataBarang() { //method untuk mengambil & menampilkan data barang
-        try {
-//            model.setRowCount(0); //mengosongkan isi tabel (menghapus semua baris lama, supaya tidak double saat data di load ulang)
-//            
-//        String sql = "SELECT b.kode_barang, CONCAT('BR', LPAD(b.kode_barang, 2, '0')) AS kode_br, b.kode_jenis, j.nama_jenis, b.nama_barang, b.satuan, b.harga, b.stok "
-//                + "FROM barang b JOIN jenisbarang j ON j.kode_jenis = b.kode_jenis "
-//                + "ORDER BY b.kode_barang ASC"; //mengurutkan kode barang
-//        PreparedStatement ps = conn.prepareStatement(sql);
-//        ResultSet rs = ps.executeQuery();
-//        
-//        while (rs.next()) {
-//            selectedId = rs.getInt("kode_barang");
-//            
-//            model.addRow(new Object[]{
-//                rs.getString("kode_br"),    
-//                rs.getInt("kode_jenis"),
-//                rs.getString("nama_jenis"),
-//                rs.getString("nama_barang"),
-//                rs.getString("satuan"),
-//                rs.getString("harga"),
-//                rs.getInt("stok")
-//            });
-//        }
-//        
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
-    }
-    
-    
-//    private void showPanel(String name) { //untuk ganti panel 
-//        CardLayout cl = (CardLayout) mainPanel.getLayout();
-//        cl.show(mainPanel, name);
-//    }
+ 
+
     
     private void reset() { //mengosongkan form input
         tKodeJenisBarang.setText("");
@@ -154,45 +110,6 @@ public class formBarang extends javax.swing.JPanel {
         } catch (SQLException sQLException) {
             JOptionPane.showMessageDialog(null, "Eror saat cari : " + sQLException.getMessage());
         }
-        
-        
-        
-//        String cari = tCari.getText().trim();
-        
-//        DefaultTableModel model = (DefaultTableModel) tblDataBarang.getModel();
-//        model.setRowCount(0);
-        
-//        try {
-//            String sql = "SELECT * FROM barang WHERE nama_barang LIKE ? OR satuan LIKE ? OR CAST(stok AS CHAR) LIKE ? OR CAST(harga AS CHAR) LIKE ? OR kode_barang = ?";
-//            PreparedStatement ps = koneksi.configDB().prepareStatement(sql);
-//            ps.setString(1, "%" + cari + "%");
-//            ps.setString(2, "%" + cari + "%");
-//            ps.setString(3, "%" + cari + "%");
-//            ps.setString(4, "%" + cari + "%");
-//            
-//            int id = 0;
-//            if (cari.startsWith("BR")) {
-//                id = Integer.parseInt(cari.replace("BR", ""));
-//            } else if (cari.matches("\\d+")) {
-//                id = Integer.parseInt(cari);
-//            }
-//            
-//            ps.setInt(5, id);
-//            
-//            ResultSet rs = ps.executeQuery();
-//            while (rs.next()) {
-//                model.addRow(new Object[]{
-//                    "BR" + String.format("%02d", rs.getInt("kode_barang")), 
-//                    rs.getInt("kode_jenis"),
-//                    rs.getString("nama_barang"),
-//                    rs.getString("satuan"),
-//                    rs.getString("harga"),
-//                    rs.getInt("stok")
-//                });
-//            }
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
-//        }
 }
      
     private void ComboBarang() { //isi combobox
@@ -204,15 +121,7 @@ public class formBarang extends javax.swing.JPanel {
             String data = rs.getString("nama_jenis");
             cNamaJnsBrng.addItem(data); 
         }
-//        String sql = "SELECT kode_jenis, nama_jenis FROM jenisbarang";
-//        Connection con = koneksi.configDB();
-//        Statement st = con.createStatement();
-//        ResultSet rs = st.executeQuery(sql);
-//
-//        cNamaJnsBrng.removeAllItems();
-//        while (rs.next()) {
-//            cNamaJnsBrng.addItem(rs.getString("nama_jenis"));
-//        }
+
     } catch (SQLException sQLException) {
         JOptionPane.showMessageDialog(null, "Eror CB : " + sQLException.getMessage());
     }
@@ -574,33 +483,7 @@ public class formBarang extends javax.swing.JPanel {
         reset();
 
 
-//        int row = tblDataBarang.getSelectedRow();
-//        
-//        if (row < 0) {
-//            JOptionPane.showMessageDialog(this, "Pilih data dulu!");
-//            return;
-//        }
-//        
-//        int konfirmasi = JOptionPane.showConfirmDialog(
-//                this, "Yakin ingin menghapus data ini?", "Hapus", JOptionPane.YES_NO_OPTION);
-//        
-//        if (konfirmasi == JOptionPane.YES_OPTION) {
-//            try {
-//                int id = selectedId;
-//
-//                String sql = "DELETE FROM barang WHERE kode_barang=?";
-//                PreparedStatement ps = conn.prepareStatement(sql);
-//                ps.setInt(1, id);
-//                
-//                ps.executeUpdate();
-//                
-//                JOptionPane.showMessageDialog(this, "Data berhasil dihapus!");
-//                loadDataBarang();
-//                
-//            } catch (Exception e) {
-//                JOptionPane.showMessageDialog(this, e.getMessage());
-//            }
-//        }
+
     }//GEN-LAST:event_btnHapusActionPerformed
 
     private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
@@ -629,8 +512,7 @@ public class formBarang extends javax.swing.JPanel {
         mainPanel.repaint();
         mainPanel.revalidate();
 
-//        tKodeBarang.setEditable(false);
-//        showPanel("tambahBarang");
+
     }//GEN-LAST:event_btnUbahActionPerformed
 
     private void tblDataBarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDataBarangMouseClicked
@@ -657,10 +539,7 @@ public class formBarang extends javax.swing.JPanel {
         mainPanel.repaint();
         mainPanel.revalidate();
         
-        
-//        tKodeBarang.setEditable(false);
-//        reset();
-//        showPanel("tambahBarang");
+
     }//GEN-LAST:event_btnTambahActionPerformed
 
     private void tKodeJenisBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tKodeJenisBarangActionPerformed
@@ -700,22 +579,7 @@ public class formBarang extends javax.swing.JPanel {
     }//GEN-LAST:event_cNamaJnsBrngKeyReleased
 
     private void tKodeJenisBarangKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tKodeJenisBarangKeyReleased
-        // TODO add your handling code here:
-        //otomatis terisi saat ketik kode barang
-//        try {
-//        String sql = "SELECT nama_jenis FROM jenisbarang WHERE kode_jenis = ?";
-//        Connection con = koneksi.configDB();
-//        PreparedStatement ps = con.prepareStatement(sql);
-//        ps.setString(1, tKodeJenisBarang.getText());
-//
-//        ResultSet rs = ps.executeQuery();
-//        if (rs.next()) {
-//            cNamaJnsBrng.setSelectedItem(rs.getString("nama_jenis"));
-//        }
-//        } catch (Exception e) {
-//            // dikosongkan jika tidak ditemukan
-//            System.out.println(e);
-//        }
+
     }//GEN-LAST:event_tKodeJenisBarangKeyReleased
 
     private void cNamaJnsBrngActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cNamaJnsBrngActionPerformed
@@ -733,7 +597,7 @@ public class formBarang extends javax.swing.JPanel {
 
             if (rs != null && rs.next()) {
                 int kodeJenis = rs.getInt("kode_jenis");
-                tKodeJenisBarang.setText("BR" + String.format("%02d", kodeJenis));
+                tKodeJenisBarang.setText("JN" + String.format("%02d", kodeJenis));
             }
 
         } catch (SQLException e) {
@@ -777,7 +641,7 @@ public class formBarang extends javax.swing.JPanel {
             int kodeJenis = rs.getInt("kode_jenis");
 
             brg.setKode_jenis(kodeJenis); // ⭐ WAJIB
-            tKodeJenisBarang.setText("BR" + String.format("%02d", kodeJenis));
+            tKodeJenisBarang.setText("JN" + String.format("%02d", kodeJenis));
         } else {
             JOptionPane.showMessageDialog(null, "Jenis barang tidak ditemukan");
             return;
