@@ -73,7 +73,7 @@ private void loadTable() {
         cmbBarang = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(138, 195, 153));
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable.setBackground(new java.awt.Color(204, 255, 204));

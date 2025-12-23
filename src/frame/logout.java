@@ -32,7 +32,7 @@ public class logout extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
 
-        setBackground(new java.awt.Color(138, 195, 153));
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Book", 0, 18)); // NOI18N
         jLabel1.setText("LogOut");

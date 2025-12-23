@@ -23,75 +23,75 @@ public class laporan extends javax.swing.JPanel {
     
 private void loadTabelLaporan(String pilihan){
     
-    String query = "";
-    
-    switch (pilihan.toLowerCase()) {
-        case "laporan barang masuk":
-            query = "SELECT bm.no_masuk, bm.tgl_masuk, "
-          + "jb.nama_jenis AS nama_barang, "
-          + "dbm.jml_masuk, dbm.subtotal_masuk "
-          + "FROM barangmasuk bm "
-          + "JOIN detail_barangmasuk dbm "
-          + "ON bm.no_masuk = dbm.no_masuk "
-          + "JOIN barang b "
-          + "ON dbm.kode_barang = b.kode_barang "
-          + "JOIN jenisbarang jb "
-          + "ON b.kode_jenis = jb.kode_jenis";
-break;
- case "laporan barang keluar":
-        query = "SELECT bk.no_keluar, bk.tgl_keluar, jb.nama_jenis AS nama_barang, " +
-                "dbk.jml_keluar, dbk.subtotal_keluar " +
-                "FROM barangkeluar bk " +
-                "JOIN detail_barangkeluar dbk ON bk.no_keluar = dbk.no_keluar " +
-                "JOIN barang b ON dbk.kode_barang = b.kode_barang " +
-                "JOIN jenisbarang jb ON b.kode_jenis = jb.kode_jenis";
+            String query = "";
+
+            switch (pilihan.toLowerCase()) {
+                case "laporan barang masuk":
+                    query = "SELECT bm.no_masuk, bm.tgl_masuk, "
+                  + "jb.nama_jenis AS nama_barang, "
+                  + "dbm.jml_masuk, dbm.subtotal_masuk "
+                  + "FROM barangmasuk bm "
+                  + "JOIN detail_barangmasuk dbm "
+                  + "ON bm.no_masuk = dbm.no_masuk "
+                  + "JOIN barang b "
+                  + "ON dbm.kode_barang = b.kode_barang "
+                  + "JOIN jenisbarang jb "
+                  + "ON b.kode_jenis = jb.kode_jenis";
         break;
-        case "laporan hasil panen":
-    query = "SELECT no_panen, tgl_panen, jumlah_panen, total_hasil FROM hasilpanen";
-break;
-    }
-    if (query.isEmpty()){
-       JOptionPane.showMessageDialog(this, " Query kosong! +" + pilihan);
-            return;
-    }
-            
-    try{
-        koneksi konek = new koneksi();
-        Connection conn = koneksi.configDB();
-        Statement st = conn.createStatement();
-        ResultSet rs = st.executeQuery(query);
-        DefaultTableModel model = new DefaultTableModel();
-model.setColumnIdentifiers(new Object[]{
-    "No Masuk",
-    "Tanggal Masuk",
-    "Nama Barang",
-    "Jumlah Masuk",
-    "Subtotal"
-});
-tblLaporan.setModel(model);
-        while (rs.next()){
-            model.addRow(new Object[]{
-    rs.getInt("no_masuk"),
-    rs.getDate("tgl_masuk"),
-    rs.getString("nama_barang"),
-    rs.getInt("jml_masuk"),
-    rs.getBigDecimal("subtotal_masuk")
-});        }
-    }catch(Exception e){
-        JOptionPane.showMessageDialog(this, "Gagal mengambil data" + e.getMessage());
-    }
-}
-    public laporan() {
-        initComponents();
-        CBlaporan.addActionListener(e -> {
-            String pilihan = CBlaporan.getSelectedItem().toString();
-            lblMain.setText(pilihan);
-            loadTabelLaporan(pilihan);
+         case "laporan barang keluar":
+                query = "SELECT bk.no_keluar, bk.tgl_keluar, jb.nama_jenis AS nama_barang, " +
+                        "dbk.jml_keluar, dbk.subtotal_keluar " +
+                        "FROM barangkeluar bk " +
+                        "JOIN detail_barangkeluar dbk ON bk.no_keluar = dbk.no_keluar " +
+                        "JOIN barang b ON dbk.kode_barang = b.kode_barang " +
+                        "JOIN jenisbarang jb ON b.kode_jenis = jb.kode_jenis";
+                break;
+                case "laporan hasil panen":
+            query = "SELECT no_panen, tgl_panen, jumlah_panen, total_hasil FROM hasilpanen";
+        break;
+            }
+            if (query.isEmpty()){
+               JOptionPane.showMessageDialog(this, " Query kosong! +" + pilihan);
+                    return;
+            }
+
+            try{
+                koneksi konek = new koneksi();
+                Connection conn = koneksi.configDB();
+                Statement st = conn.createStatement();
+                ResultSet rs = st.executeQuery(query);
+                DefaultTableModel model = new DefaultTableModel();
+        model.setColumnIdentifiers(new Object[]{
+            "No Masuk",
+            "Tanggal Masuk",
+            "Nama Barang",
+            "Jumlah Masuk",
+            "Subtotal"
+        });
+        tblLaporan.setModel(model);
+                while (rs.next()){
+                    model.addRow(new Object[]{
+            rs.getInt("no_masuk"),
+            rs.getDate("tgl_masuk"),
+            rs.getString("nama_barang"),
+            rs.getInt("jml_masuk"),
+            rs.getBigDecimal("subtotal_masuk")
+        });        }
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(this, "Gagal mengambil data" + e.getMessage());
+            }
         }
-        );
-      
-        
+            public laporan() {
+                initComponents();
+                CBlaporan.addActionListener(e -> {
+                    String pilihan = CBlaporan.getSelectedItem().toString();
+                    lblMain.setText(pilihan);
+                    loadTabelLaporan(pilihan);
+                }
+                );  
     }
+    
+ 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -108,7 +108,7 @@ tblLaporan.setModel(model);
         jScrollPane1 = new javax.swing.JScrollPane();
         tblLaporan = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(138, 195, 153));
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Book", 0, 18)); // NOI18N
         jLabel1.setText("Laporan");
@@ -129,7 +129,7 @@ tblLaporan.setModel(model);
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(138, 195, 153));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         Bcetak.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
@@ -141,6 +141,7 @@ tblLaporan.setModel(model);
         });
 
         lblMain.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
+        lblMain.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblMain.setText("Main");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -148,13 +149,14 @@ tblLaporan.setModel(model);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(122, 122, 122)
-                .addComponent(lblMain)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(104, Short.MAX_VALUE)
-                .addComponent(Bcetak)
-                .addGap(102, 102, 102))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(103, 103, 103)
+                        .addComponent(Bcetak))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(lblMain, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,22 +180,21 @@ tblLaporan.setModel(model);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 44, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(CBlaporan, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(220, 220, 220))
-                    .addComponent(CBlaporan, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(33, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(152, 152, 152)
+                        .addComponent(Bkembali)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Bkembali)
-                .addGap(140, 140, 140))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,11 +203,11 @@ tblLaporan.setModel(model);
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(CBlaporan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addGap(29, 29, 29)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(40, 40, 40)
                 .addComponent(Bkembali)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
 
         tblLaporan.setBackground(new java.awt.Color(204, 255, 204));
@@ -249,11 +250,11 @@ tblLaporan.setModel(model);
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(233, 233, 233))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -262,6 +263,7 @@ tblLaporan.setModel(model);
         String pilihan = CBlaporan.getSelectedItem().toString();
         lblMain.setText(pilihan);
         loadTabelLaporan(pilihan);
+        
     }//GEN-LAST:event_BkembaliActionPerformed
 
     private void CBlaporanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBlaporanActionPerformed

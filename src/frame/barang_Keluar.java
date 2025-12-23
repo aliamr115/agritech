@@ -481,15 +481,16 @@ public class barang_Keluar extends javax.swing.JPanel {
 
         mainPanel.setLayout(new java.awt.CardLayout());
 
-        dataBK.setBackground(new java.awt.Color(138, 195, 153));
+        dataBK.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel9.setFont(new java.awt.Font("Franklin Gothic Book", 0, 18)); // NOI18N
         jLabel9.setText("Data Barang Keluar");
 
         jSeparator9.setForeground(new java.awt.Color(0, 0, 0));
 
-        btnTambah.setBackground(new java.awt.Color(153, 255, 0));
-        btnTambah.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        btnTambah.setBackground(new java.awt.Color(0, 153, 0));
+        btnTambah.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
+        btnTambah.setForeground(new java.awt.Color(255, 255, 255));
         btnTambah.setText("TAMBAH");
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -516,6 +517,9 @@ public class barang_Keluar extends javax.swing.JPanel {
         });
         jScrollPane5.setViewportView(tblBK);
 
+        btnHapus.setBackground(new java.awt.Color(0, 153, 0));
+        btnHapus.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
+        btnHapus.setForeground(new java.awt.Color(255, 255, 255));
         btnHapus.setText("Hapus");
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -534,6 +538,9 @@ public class barang_Keluar extends javax.swing.JPanel {
             }
         });
 
+        btnDetail.setBackground(new java.awt.Color(0, 153, 0));
+        btnDetail.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
+        btnDetail.setForeground(new java.awt.Color(255, 255, 255));
         btnDetail.setText("Detail");
         btnDetail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -545,54 +552,53 @@ public class barang_Keluar extends javax.swing.JPanel {
         dataBK.setLayout(dataBKLayout);
         dataBKLayout.setHorizontalGroup(
             dataBKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dataBKLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(dataBKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
-                    .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 940, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(dataBKLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addGap(38, 38, 38)
                 .addGroup(dataBKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(dataBKLayout.createSequentialGroup()
                         .addComponent(btnTambah)
-                        .addGap(18, 18, 18)
-                        .addGroup(dataBKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(dataBKLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(dataBKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, dataBKLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jLabel10))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dataBKLayout.createSequentialGroup()
+                            .addGroup(dataBKLayout.createSequentialGroup()
                                 .addComponent(btnHapus)
-                                .addGap(18, 18, 18)
+                                .addGap(32, 32, 32)
                                 .addComponent(btnDetail)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(tCari, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(dataBKLayout.createSequentialGroup()
+                        .addGroup(dataBKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel9)
+                            .addComponent(tCari, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 969, Short.MAX_VALUE)
+                            .addComponent(jSeparator9))
+                        .addGap(0, 43, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         dataBKLayout.setVerticalGroup(
             dataBKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dataBKLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23)
                 .addGroup(dataBKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel10)
                     .addGroup(dataBKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnTambah)
-                        .addComponent(btnHapus)
-                        .addComponent(tCari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnDetail)))
-                .addGap(41, 41, 41)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 40, Short.MAX_VALUE))
+                        .addComponent(btnTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tCari, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(44, 44, 44)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 76, Short.MAX_VALUE))
         );
 
         mainPanel.add(dataBK, "card2");
 
-        tambahBK.setBackground(new java.awt.Color(138, 195, 153));
+        tambahBK.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel11.setFont(new java.awt.Font("Franklin Gothic Book", 0, 18)); // NOI18N
         jLabel11.setText("Tambah Barang Keluar");
@@ -777,12 +783,12 @@ public class barang_Keluar extends javax.swing.JPanel {
                 .addGroup(tambahBKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel16)
                     .addComponent(tSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 154, Short.MAX_VALUE))
+                .addGap(0, 247, Short.MAX_VALUE))
         );
 
         mainPanel.add(tambahBK, "card2");
 
-        detailBK.setBackground(new java.awt.Color(138, 195, 153));
+        detailBK.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel13.setFont(new java.awt.Font("Franklin Gothic Book", 0, 18)); // NOI18N
         jLabel13.setText("Detail Barang Keluar");
@@ -874,7 +880,7 @@ public class barang_Keluar extends javax.swing.JPanel {
                                 .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING)))
-                        .addGap(0, 83, Short.MAX_VALUE))))
+                        .addGap(0, 30, Short.MAX_VALUE))))
         );
         detailBKLayout.setVerticalGroup(
             detailBKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -900,7 +906,7 @@ public class barang_Keluar extends javax.swing.JPanel {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
 
         mainPanel.add(detailBK, "card2");

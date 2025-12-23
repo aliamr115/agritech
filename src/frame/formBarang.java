@@ -4,8 +4,8 @@
  */
 package frame;
 
-//import Class.koneksi;
-//import java.awt.CardLayout;
+import Class.koneksi;
+import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.sql.ResultSet;
@@ -264,7 +264,7 @@ public class formBarang extends javax.swing.JPanel {
 
         mainPanel.setLayout(new java.awt.CardLayout());
 
-        dataBarang.setBackground(new java.awt.Color(138, 195, 153));
+        dataBarang.setBackground(new java.awt.Color(255, 255, 255));
 
         tblDataBarang.setBackground(new java.awt.Color(204, 255, 204));
         tblDataBarang.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
@@ -377,11 +377,11 @@ public class formBarang extends javax.swing.JPanel {
                 .addGap(44, 44, 44)
                 .addGroup(dataBarangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tCari, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
                     .addGroup(dataBarangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnUbah, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(tCari, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)))
+                        .addComponent(btnTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(127, 127, 127))
@@ -389,7 +389,7 @@ public class formBarang extends javax.swing.JPanel {
 
         mainPanel.add(dataBarang, "card2");
 
-        tambahBarang.setBackground(new java.awt.Color(138, 195, 153));
+        tambahBarang.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel3.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         jLabel3.setText("Kode Barang");
@@ -479,7 +479,7 @@ public class formBarang extends javax.swing.JPanel {
             .addGroup(tambahBarangLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(btnSimpan1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnBatal1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(tambahBarangLayout.createSequentialGroup()
@@ -512,7 +512,7 @@ public class formBarang extends javax.swing.JPanel {
                         .addGap(6, 6, 6))
                     .addGroup(tambahBarangLayout.createSequentialGroup()
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(878, Short.MAX_VALUE))))
+                        .addContainerGap(882, Short.MAX_VALUE))))
         );
         tambahBarangLayout.setVerticalGroup(
             tambahBarangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -523,9 +523,9 @@ public class formBarang extends javax.swing.JPanel {
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(tambahBarangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSimpan1)
-                    .addComponent(btnBatal1))
-                .addGap(18, 18, 18)
+                    .addComponent(btnSimpan1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBatal1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tKodeBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -553,7 +553,7 @@ public class formBarang extends javax.swing.JPanel {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tStok, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
 
         mainPanel.add(tambahBarang, "card3");
