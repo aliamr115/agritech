@@ -183,7 +183,19 @@ public class Model_Barang extends koneksi{ //Model : digunakan untuk mendeklaras
         }
         return rs;
     }
-    
+    public ResultSet loadNamaBarang() {
+    try {
+        query = "SELECT kode_barang, nama_barang FROM barang ORDER BY nama_barang ASC";
+        ps = conn.prepareStatement(query);
+        rs = ps.executeQuery();
+        return rs;
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Gagal load nama barang: " + e.getMessage());
+        return null;
+    }
+}
+
     
 }
 
