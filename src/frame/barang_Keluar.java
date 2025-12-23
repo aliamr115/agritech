@@ -43,28 +43,11 @@ public class barang_Keluar extends javax.swing.JPanel {
     public barang_Keluar() {
         initComponents();
         IDno_Keluar();
-        autoID();
+        showDataBK();
     }
     
-    void autoID(){
-        Model_BarangKeluar mbk = new Model_BarangKeluar();
-        ResultSet rs = mbk.autoID();
-        try {
-            String maxID = rs.getString("max_id");
-            if (rs.next()) { 
-               tNoKeluar.setText("BK001"); 
-            }else{
-                int nomor = Integer.parseInt(maxID.substring(2));
-                nomor ++;
-                    
-                String kodeBaru = String.format("BK%03d", nomor);
-                tNoKeluar.setText(kodeBaru);
-            }   
-        } catch (SQLException sQLException) {
-            JOptionPane.showMessageDialog(null, "gagal " + sQLException.getMessage());
-        }
-    }
-    
+
+
     private void hitungTotalKeluar() {
     BigDecimal total = BigDecimal.ZERO;
     DefaultTableModel model = (DefaultTableModel) tblDetail.getModel();
@@ -764,20 +747,12 @@ public class barang_Keluar extends javax.swing.JPanel {
                     .addComponent(jLabel1)
                     .addComponent(jLabel3))
                 .addGroup(tambahBKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tambahBKLayout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(tKodeBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(tambahBKLayout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(tNoKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(tKodeBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tNoKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(tambahBKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tambahBKLayout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(0, 0, 0))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tambahBKLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(5, 5, 5)
                 .addGroup(tambahBKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(cNamaBarang, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
@@ -795,11 +770,11 @@ public class barang_Keluar extends javax.swing.JPanel {
                     .addComponent(jLabel5)
                     .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(0, 0, 0)
-                .addGroup(tambahBKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(tambahBKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tTotalKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(tambahBKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(tambahBKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel16)
                     .addComponent(tSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 154, Short.MAX_VALUE))

@@ -27,14 +27,11 @@ public class formLogin extends javax.swing.JFrame {
     /**
      * Creates new form formLogin
      */
-    public formLogin() {
+    public formLogin() { //method yg pertama kali dijalankan saat objek dibuat
         initComponents();
     }
     
-    void reset(){
-        
-    }
-
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -131,7 +128,7 @@ public class formLogin extends javax.swing.JFrame {
         Connection conn = new koneksi().configDB();
         
         try {
-            PreparedStatement ps = conn.prepareStatement(sql);
+            PreparedStatement ps = conn.prepareStatement(sql); 
             ps.setString(1, username);
             ps.setString(2, password);
             
@@ -152,7 +149,7 @@ public class formLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_tUsernameActionPerformed
 
     private void tUsernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tUsernameFocusGained
-        String username = tUsername.getText();
+        String username = tUsername.getText(); //method ini dijalankan ketikamenginputkan ke teksfield username
         if(username.equals("username")){
             tUsername.setText("");
         }
@@ -173,7 +170,7 @@ public class formLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_tPasswordFocusLost
 
     private void tUsernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tUsernameFocusLost
-        String username = tUsername.getText();
+        String username = tUsername.getText(); //kosong = muncul username
         if(username.equals("")||username.equals("username")){
             tUsername.setText("username");
         }

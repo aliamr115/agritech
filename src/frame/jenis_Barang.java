@@ -101,7 +101,7 @@ public class jenis_Barang extends javax.swing.JPanel {
         }
     }
 
-     private void reset(){
+     private void reset(){ 
         tKodeJenis.setText("");
         tNamaJenis.setText("");
 
@@ -111,8 +111,8 @@ public class jenis_Barang extends javax.swing.JPanel {
 
     
      
-    private void eventTableClick(){ //untuk menampilkan panel UBAH,HAPUS,BATAL saat salah satu data pada JTable diklik 
-        tblDataJenis.addMouseListener(new MouseAdapter(){
+    private void eventTableClick(){ //
+        tblDataJenis.addMouseListener(new MouseAdapter(){   
         @Override
         public void mouseClicked(MouseEvent e){
             int baris = tblDataJenis.getSelectedRow();
@@ -131,7 +131,7 @@ public class jenis_Barang extends javax.swing.JPanel {
     }
      
     
-    public void autoKodeJenis(){
+    public void autoKodeJenis(){ 
         Model_JenisBarang jns = new Model_JenisBarang();
         ResultSet rs = jns.autoKodeJenis();
         try {
@@ -214,7 +214,7 @@ public class jenis_Barang extends javax.swing.JPanel {
         jScrollPane3.setViewportView(tblDataJenis);
 
         dataJenis.add(jScrollPane3);
-        jScrollPane3.setBounds(44, 146, 920, 390);
+        jScrollPane3.setBounds(34, 146, 970, 390);
 
         btnTambah.setBackground(new java.awt.Color(0, 153, 0));
         btnTambah.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
@@ -226,11 +226,11 @@ public class jenis_Barang extends javax.swing.JPanel {
             }
         });
         dataJenis.add(btnTambah);
-        btnTambah.setBounds(50, 100, 80, 30);
+        btnTambah.setBounds(40, 100, 80, 30);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-search-22.png"))); // NOI18N
         dataJenis.add(jLabel7);
-        jLabel7.setBounds(930, 100, 40, 30);
+        jLabel7.setBounds(970, 100, 40, 30);
 
         tCari.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         tCari.addActionListener(new java.awt.event.ActionListener() {
@@ -244,7 +244,7 @@ public class jenis_Barang extends javax.swing.JPanel {
             }
         });
         dataJenis.add(tCari);
-        tCari.setBounds(700, 100, 260, 30);
+        tCari.setBounds(740, 100, 260, 30);
 
         btnUbah.setBackground(new java.awt.Color(0, 153, 0));
         btnUbah.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
@@ -256,7 +256,7 @@ public class jenis_Barang extends javax.swing.JPanel {
             }
         });
         dataJenis.add(btnUbah);
-        btnUbah.setBounds(150, 100, 72, 30);
+        btnUbah.setBounds(140, 100, 72, 30);
 
         btnHapus.setBackground(new java.awt.Color(0, 153, 0));
         btnHapus.setFont(new java.awt.Font("Franklin Gothic Book", 1, 12)); // NOI18N
@@ -268,11 +268,11 @@ public class jenis_Barang extends javax.swing.JPanel {
             }
         });
         dataJenis.add(btnHapus);
-        btnHapus.setBounds(250, 100, 72, 30);
+        btnHapus.setBounds(240, 100, 72, 30);
 
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
         dataJenis.add(jSeparator2);
-        jSeparator2.setBounds(40, 40, 920, 3);
+        jSeparator2.setBounds(40, 40, 960, 3);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bg_panel (1).png"))); // NOI18N
         jLabel3.setText("jLabel3");
@@ -416,7 +416,7 @@ public class jenis_Barang extends javax.swing.JPanel {
             }
         }
         load_table_jenis();
-        showDataJenis(); //kembali ke panel tampilJenis
+        showDataJenis(); 
            
        
     }//GEN-LAST:event_btnSimpanActionPerformed

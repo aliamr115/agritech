@@ -77,11 +77,11 @@ public class dashboard extends javax.swing.JFrame {
         pn_navbar.setMinimumSize(new java.awt.Dimension(100, 80));
         pn_navbar.setPreferredSize(new java.awt.Dimension(1300, 70));
 
-        lAgritech.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lAgritech.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 1, 26)); // NOI18N
         lAgritech.setForeground(new java.awt.Color(255, 255, 255));
         lAgritech.setText("A G R I T E C H ");
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Franklin Gothic Book", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Selamat datang di Aplikasi Inventroy Pertanian");
 
@@ -92,7 +92,7 @@ public class dashboard extends javax.swing.JFrame {
             .addGroup(pn_navbarLayout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(lAgritech)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 999, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
         );
@@ -103,7 +103,7 @@ public class dashboard extends javax.swing.JFrame {
                 .addGroup(pn_navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lAgritech)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         getContentPane().add(pn_navbar, java.awt.BorderLayout.PAGE_START);
