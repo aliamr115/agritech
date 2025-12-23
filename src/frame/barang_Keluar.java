@@ -927,7 +927,7 @@ public class barang_Keluar extends javax.swing.JPanel {
 
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
         Model_BarangKeluar barangKeluar = new Model_BarangKeluar();
-       // barangKeluar.setNo_keluar(tNoKeluar.getText());
+       //barangKeluar.setNo_keluar(tNoKeluar.getText());
 
         barangKeluar.HapusBarangKeluar();
         load_table_BK();

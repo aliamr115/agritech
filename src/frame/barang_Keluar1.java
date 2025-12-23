@@ -209,7 +209,7 @@ public class barang_Keluar1 extends javax.swing.JPanel {
             model.addRow(new Object[]{
                 kodeBK,                          // BK001
                 rs.getDate("tgl_keluar"),
-                rs.getString("nama_barang"),     // 👈 BARU
+                rs.getString("nama_barang"),     //  BARU
                 rs.getLong("total_keluar")
             });
         }
@@ -272,7 +272,7 @@ public class barang_Keluar1 extends javax.swing.JPanel {
     tTotalKeluar.setText("");
     jcTglKeluar.setDate(null);
     
-    // ✅ PERBAIKI BAGIAN INI
+    
  }
     
     private void eventTableClick(){ //untuk menampilkan panel UBAH,HAPUS,BATAL saat salah satu data pada JTable diklik 
