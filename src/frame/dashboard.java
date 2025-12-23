@@ -247,7 +247,7 @@ public class dashboard extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 pn_utama.removeAll();
-                pn_utama.add(new barang_Keluar());
+                pn_utama.add(new barang_Keluar1());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }
